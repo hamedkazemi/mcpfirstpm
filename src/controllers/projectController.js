@@ -20,13 +20,15 @@ const getUserProjects = async (req, res) => {
       sortOrder = 'desc' 
     } = req.query;
 
-    const projects = await projectModel.findByUser(req.user._id, {
+    const options = {
       page: parseInt(page),
       limit: parseInt(limit),
       status,
       sortBy,
       sortOrder
-    });
+    };
+
+    const projects = await projectModel.findByUser(req.user._id.toString(), options);
 
     res.status(200).json({
       success: true,
@@ -37,10 +39,14 @@ const getUserProjects = async (req, res) => {
       }
     });
   } catch (error) {
+    let errorDetails = 'Internal server error';
+    if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+      errorDetails = error.message || error.toString() || error;
+    }
     res.status(500).json({
       success: false,
       message: 'Error retrieving projects',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: errorDetails
     });
   }
 };
@@ -77,10 +83,14 @@ const getProjectById = async (req, res) => {
       data: { project }
     });
   } catch (error) {
+    let errorDetails = 'Internal server error';
+    if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+      errorDetails = error.message || error.toString() || error;
+    }
     res.status(500).json({
       success: false,
       message: 'Error retrieving project',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: errorDetails
     });
   }
 };
@@ -109,14 +119,19 @@ const createProject = async (req, res) => {
       name,
       description,
       key,
-      owner: req.user._id,
-      settings: settings || {}
+      owner: req.user._id.toString(), // Convert ObjectID to string
+      // settings: settings || {} // Removed as 'settings' is not in Project Joi schema's top level
+      // If settings are needed, they should be part of 'metadata' or a defined field
     };
+    if (settings) { // If settings are provided in request, assume they go into metadata or handle appropriately
+        projectData.metadata = { customFields: settings }; // Example: placing it in metadata.customFields
+    }
+
 
     const project = await projectModel.create(projectData);
 
     // Create default tags for the project
-    await tagModel.createDefaults(project._id);
+    await tagModel.createDefaultTags(project._id); // Corrected method name
 
     res.status(201).json({
       success: true,
@@ -125,8 +140,8 @@ const createProject = async (req, res) => {
     });
   } catch (error) {
     // Handle validation errors
-    if (error.name === 'ValidationError') {
-      const validationErrors = Object.values(error.errors).map(err => err.message);
+    if (error.isJoi && error.details) { // Correctly check for Joi validation errors
+      const validationErrors = error.details.map(detail => detail.message);
       return res.status(400).json({
         success: false,
         message: 'Validation error',
@@ -134,10 +149,14 @@ const createProject = async (req, res) => {
       });
     }
 
+    let errorDetails = 'Internal server error';
+    if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+      errorDetails = error.message || error.toString() || error;
+    }
     res.status(500).json({
       success: false,
       message: 'Error creating project',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: errorDetails
     });
   }
 };
@@ -182,17 +201,18 @@ const updateProject = async (req, res) => {
       });
     }
 
-    const updatedProject = await projectModel.update(id, updateData);
+    await projectModel.update(id, updateData);
+    const projectWithUpdates = await projectModel.findById(id); // Fetch the updated document
 
     res.status(200).json({
       success: true,
       message: 'Project updated successfully',
-      data: { project: updatedProject }
+      data: { project: projectWithUpdates }
     });
   } catch (error) {
     // Handle validation errors
-    if (error.name === 'ValidationError') {
-      const validationErrors = Object.values(error.errors).map(err => err.message);
+    if (error.isJoi && error.details) { // Correctly check for Joi validation errors
+      const validationErrors = error.details.map(detail => detail.message);
       return res.status(400).json({
         success: false,
         message: 'Validation error',
@@ -200,10 +220,14 @@ const updateProject = async (req, res) => {
       });
     }
 
+    let errorDetailsUpdate = 'Internal server error';
+    if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+      errorDetailsUpdate = error.message || error.toString() || error;
+    }
     res.status(500).json({
       success: false,
       message: 'Error updating project',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: errorDetailsUpdate
     });
   }
 };
@@ -246,10 +270,14 @@ const deleteProject = async (req, res) => {
       message: 'Project deleted successfully'
     });
   } catch (error) {
+    let errorDetails = 'Internal server error';
+    if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+      errorDetails = error.message || error.toString() || error;
+    }
     res.status(500).json({
       success: false,
       message: 'Error deleting project',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: errorDetails
     });
   }
 };
@@ -314,10 +342,14 @@ const addMember = async (req, res) => {
       data: { project: updatedProject }
     });
   } catch (error) {
+    let errorDetails = 'Internal server error';
+    if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+      errorDetails = error.message || error.toString() || error;
+    }
     res.status(500).json({
       success: false,
       message: 'Error adding member',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: errorDetails
     });
   }
 };
@@ -363,10 +395,14 @@ const removeMember = async (req, res) => {
       data: { project: updatedProject }
     });
   } catch (error) {
+    let errorDetails = 'Internal server error';
+    if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+      errorDetails = error.message || error.toString() || error;
+    }
     res.status(500).json({
       success: false,
       message: 'Error removing member',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: errorDetails
     });
   }
 };
@@ -428,10 +464,14 @@ const updateMemberRole = async (req, res) => {
       data: { project: updatedProject }
     });
   } catch (error) {
+    let errorDetails = 'Internal server error';
+    if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+      errorDetails = error.message || error.toString() || error;
+    }
     res.status(500).json({
       success: false,
       message: 'Error updating member role',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: errorDetails
     });
   }
 };
@@ -492,10 +532,14 @@ const getProjectMembers = async (req, res) => {
       data: { members }
     });
   } catch (error) {
+    let errorDetails = 'Internal server error';
+    if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+      errorDetails = error.message || error.toString() || error;
+    }
     res.status(500).json({
       success: false,
       message: 'Error retrieving project members',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: errorDetails
     });
   }
 };
@@ -554,10 +598,14 @@ const getProjectStats = async (req, res) => {
       data: { stats }
     });
   } catch (error) {
+    let errorDetails = 'Internal server error';
+    if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+      errorDetails = error.message || error.toString() || error;
+    }
     res.status(500).json({
       success: false,
       message: 'Error retrieving project statistics',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: errorDetails
     });
   }
 };

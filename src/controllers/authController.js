@@ -14,6 +14,19 @@ const register = async (req, res) => {
   try {
     const { username, email, password, firstName, lastName, role } = req.body;
 
+    // Basic validation for required fields before hitting DB or Joi in model
+    if (!username || !email || !password) {
+      const missingFields = [];
+      if (!username) missingFields.push('username');
+      if (!email) missingFields.push('email');
+      if (!password) missingFields.push('password');
+      return res.status(400).json({
+        success: false,
+        message: 'Validation error: Required fields are missing.',
+        errors: missingFields.map(field => `"${field}" is required`)
+      });
+    }
+
     // Check if user already exists
     const existingUser = await userModel.findByEmail(email);
     if (existingUser) {
@@ -82,7 +95,7 @@ const register = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Error creating user',
-      error: process.env.NODE_ENV === 'development' ? 'Internal server error' : undefined
+      error: (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') ? error.message : 'Internal server error'
     });
   }
 };
@@ -152,7 +165,7 @@ const login = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Error during login',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') ? error.message : 'Internal server error'
     });
   }
 };
@@ -207,7 +220,7 @@ const refreshToken = async (req, res) => {
     res.status(401).json({
       success: false,
       message: 'Invalid or expired refresh token',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') ? error.message : 'Internal server error'
     });
   }
 };
@@ -243,7 +256,7 @@ const getProfile = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Error retrieving profile',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') ? error.message : 'Internal server error'
     });
   }
 };
@@ -312,7 +325,7 @@ const updateProfile = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Error updating profile',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') ? error.message : 'Internal server error'
     });
   }
 };
@@ -367,7 +380,7 @@ const changePassword = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Error changing password',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') ? error.message : 'Internal server error'
     });
   }
 };
@@ -391,7 +404,7 @@ const logout = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Error during logout',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') ? error.message : 'Internal server error'
     });
   }
 };

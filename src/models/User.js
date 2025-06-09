@@ -14,8 +14,8 @@ class User {
       email: Joi.string().email(),
       password: Joi.string().min(6).max(128),
       profile: Joi.object({
-        firstName: Joi.string().max(50),
-        lastName: Joi.string().max(50),
+        firstName: Joi.string().max(50).allow(''),
+        lastName: Joi.string().max(50).allow(''),
         avatar: Joi.string().uri().allow('')
       }).default({}),
       roles: Joi.array().items(Joi.string().valid('admin', 'manager', 'developer', 'viewer')).default(['developer']),
