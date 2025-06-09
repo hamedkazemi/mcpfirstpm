@@ -12,10 +12,10 @@ class Project {
       name: Joi.string().min(1).max(100),
       description: Joi.string().max(1000).allow(''),
       key: Joi.string().alphanum().min(2).max(10).uppercase(),
-      owner: Joi.string().length(24), // ObjectID string
+      owner: Joi.string(), // Relaxed: TingoDB ObjectID.toString() might not be 24 chars
       members: Joi.array().items(
         Joi.object({
-          userId: Joi.string().length(24).required(),
+          userId: Joi.string().required(), // Relaxed: Same reason for userId in members
           role: Joi.string().valid('manager', 'developer', 'viewer').default('developer'),
           joinedAt: Joi.date().default(Date.now)
         })
@@ -51,7 +51,7 @@ class Project {
     // Validate input
     const { error, value } = Project.getValidationSchema().validate(projectData);
     if (error) {
-      throw new Error(`Validation error: ${error.details[0].message}`);
+      throw error; // Re-throw the original Joi error
     }
 
     // Check if project key already exists
@@ -89,13 +89,26 @@ class Project {
 
   // Find project by ID
   async findById(id) {
-    return new Promise((resolve, reject) => {
-      this.collection.findOne({ _id: new ObjectID(id) }, (err, result) => {
-        if (err) reject(err);
-        else resolve(result);
+    try {
+      // Ensure 'id' is a valid ObjectID format before querying if possible,
+      // or handle TingoDB's specific behavior. TingoDB's ObjectID is lenient.
+      // If 'id' is not a valid format that TingoDB can understand as an ObjectID,
+      // it might not find the document, or it could error.
+      // Forcing to string and then to ObjectID might normalize some cases,
+      // but an inherently invalid string like "invalidID" will likely fail at ObjectID creation.
+      const objectIdInstance = new ObjectID(id.toString()); // Attempt to create ObjectID
+      return new Promise((resolve, reject) => {
+        this.collection.findOne({ _id: objectIdInstance }, (err, result) => {
+          if (err) reject(err);
+          else resolve(result);
+        });
       });
-    });
+    } catch (error) {
+      // If new ObjectID(id) throws due to invalid format
+      return Promise.resolve(null); // Treat as not found
+    }
   }
+  // Removed extra }); here
 
   // Find project by key
   async findByKey(key) {
@@ -108,20 +121,45 @@ class Project {
   }
 
   // Find projects by user (owner or member)
-  async findByUser(userId, limit = 20, skip = 0) {
+  async findByUser(userId, options = {}) {
+    const { limit = 10, page = 1, status = '', sortBy = 'updatedAt', sortOrder = 'desc' } = options;
+    const skip = (page - 1) * limit;
+
+    const query = {
+      $or: [
+        { owner: userId }, // userId should be a string here
+        { 'members.userId': userId }
+      ]
+    };
+    if (status) {
+      query.status = status;
+    }
+
+    const sort = {};
+    if (sortBy) {
+      sort[sortBy] = sortOrder === 'asc' ? 1 : -1;
+    }
+
     return new Promise((resolve, reject) => {
-      this.collection.find({
-        $or: [
-          { owner: userId },
-          { 'members.userId': userId }
-        ]
-      })
-      .limit(limit)
-      .skip(skip)
-      .toArray((err, result) => {
-        if (err) reject(err);
-        else resolve(result);
-      });
+      this.collection.find(query)
+        .sort(sort)
+        .skip(skip)
+        .limit(limit)
+        .toArray((err, results) => {
+          if (err) return reject(err);
+          this.collection.count(query, (err, count) => { // Changed to count()
+            if (err) return reject(err);
+            resolve({
+              results,
+              pagination: {
+                total: count,
+                limit,
+                page,
+                pages: Math.ceil(count / limit)
+              }
+            });
+          });
+        });
     });
   }
 
@@ -129,7 +167,7 @@ class Project {
   async update(id, updateData) {
     const { error, value } = Project.getValidationSchema(true).validate(updateData);
     if (error) {
-      throw new Error(`Validation error: ${error.details[0].message}`);
+      throw error; // Re-throw the original Joi error
     }
 
     value.updatedAt = new Date();
@@ -213,18 +251,25 @@ class Project {
 
   // Check if user has access to project
   async checkAccess(projectId, userId) {
-    return new Promise((resolve, reject) => {
-      this.collection.findOne({
-        _id: new ObjectID(projectId),
+    // Both projectId and userId are expected to be strings here by the calling middleware
+    try {
+      const query = {
+        _id: new ObjectID(projectId.toString()), // Ensure projectId is string then ObjectID
         $or: [
-          { owner: userId },
-          { 'members.userId': userId }
+          { owner: userId.toString() },
+          { 'members.userId': userId.toString() }
         ]
-      }, (err, result) => {
-        if (err) reject(err);
-        else resolve(!!result);
+      };
+      return new Promise((resolve, reject) => {
+        this.collection.findOne(query, (err, result) => {
+          if (err) reject(err);
+          else resolve(!!result);
+        });
       });
-    });
+    } catch (error) {
+      // If ObjectID creation fails for projectId
+      return Promise.resolve(false); // Treat as no access / not found
+    }
   }
 
   // Get user role in project

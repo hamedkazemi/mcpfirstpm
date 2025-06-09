@@ -1,0 +1,360 @@
+{"k":"0000000078","o":"0000000283","v":"001"}
+{"_id":2,"_uid":2,"_dt":1749479157710,"_s":"1100f99c9d9c38c91dcdd850803634fa"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"4","_id":{"$wrap":"$oid","v":2},"createdAt":{"$wrap":"$date","v":1749479157710,"h":"2025-06-09T14:25:57.710Z"},"updatedAt":{"$wrap":"$date","v":1749479157710,"h":"2025-06-09T14:25:57.710Z"}}
+{"k":"0000000078","o":"0000000281","v":"001"}
+{"_id":3,"_uid":3,"_dt":1749479157712,"_s":"cf0366379da12c27d9fc535444efd10b"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"4","_id":{"$wrap":"$oid","v":3},"createdAt":{"$wrap":"$date","v":1749479157712,"h":"2025-06-09T14:25:57.712Z"},"updatedAt":{"$wrap":"$date","v":1749479157712,"h":"2025-06-09T14:25:57.712Z"}}
+{"k":"0000000078","o":"0000000272","v":"001"}
+{"_id":4,"_uid":4,"_dt":1749479157714,"_s":"7ea7eae6ab5caf362fdf31e7849d9880"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"4","_id":{"$wrap":"$oid","v":4},"createdAt":{"$wrap":"$date","v":1749479157714,"h":"2025-06-09T14:25:57.714Z"},"updatedAt":{"$wrap":"$date","v":1749479157714,"h":"2025-06-09T14:25:57.714Z"}}
+{"k":"0000000078","o":"0000000280","v":"001"}
+{"_id":5,"_uid":5,"_dt":1749479157734,"_s":"434cfa1337c069a3296688fd7b20773e"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"4","_id":{"$wrap":"$oid","v":5},"createdAt":{"$wrap":"$date","v":1749479157734,"h":"2025-06-09T14:25:57.734Z"},"updatedAt":{"$wrap":"$date","v":1749479157734,"h":"2025-06-09T14:25:57.734Z"}}
+{"k":"0000000078","o":"0000000276","v":"001"}
+{"_id":6,"_uid":6,"_dt":1749479157736,"_s":"dbac154086d86396d0e6b17c9f757dd7"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"4","_id":{"$wrap":"$oid","v":6},"createdAt":{"$wrap":"$date","v":1749479157736,"h":"2025-06-09T14:25:57.736Z"},"updatedAt":{"$wrap":"$date","v":1749479157736,"h":"2025-06-09T14:25:57.736Z"}}
+{"k":"0000000078","o":"0000000281","v":"001"}
+{"_id":7,"_uid":7,"_dt":1749479157737,"_s":"719210755c721316b88c7a2b7f6b1138"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"4","_id":{"$wrap":"$oid","v":7},"createdAt":{"$wrap":"$date","v":1749479157737,"h":"2025-06-09T14:25:57.737Z"},"updatedAt":{"$wrap":"$date","v":1749479157737,"h":"2025-06-09T14:25:57.737Z"}}
+{"k":"0000000078","o":"0000000283","v":"001"}
+{"_id":8,"_uid":8,"_dt":1749479205005,"_s":"05a33123ead6fa39e8c6705c473fad2a"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"5","_id":{"$wrap":"$oid","v":8},"createdAt":{"$wrap":"$date","v":1749479205005,"h":"2025-06-09T14:26:45.005Z"},"updatedAt":{"$wrap":"$date","v":1749479205005,"h":"2025-06-09T14:26:45.005Z"}}
+{"k":"0000000078","o":"0000000281","v":"001"}
+{"_id":9,"_uid":9,"_dt":1749479205007,"_s":"56e073160c52d9be7d8097e8a9070b8a"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"5","_id":{"$wrap":"$oid","v":9},"createdAt":{"$wrap":"$date","v":1749479205007,"h":"2025-06-09T14:26:45.007Z"},"updatedAt":{"$wrap":"$date","v":1749479205007,"h":"2025-06-09T14:26:45.007Z"}}
+{"k":"0000000080","o":"0000000273","v":"001"}
+{"_id":10,"_uid":10,"_dt":1749479205009,"_s":"50e23e3c8a5a59828a940b616580e205"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"5","_id":{"$wrap":"$oid","v":10},"createdAt":{"$wrap":"$date","v":1749479205009,"h":"2025-06-09T14:26:45.009Z"},"updatedAt":{"$wrap":"$date","v":1749479205009,"h":"2025-06-09T14:26:45.009Z"}}
+{"k":"0000000080","o":"0000000281","v":"001"}
+{"_id":11,"_uid":11,"_dt":1749479205011,"_s":"ed9991f5cfb47ffc2a51446526c1909e"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"5","_id":{"$wrap":"$oid","v":11},"createdAt":{"$wrap":"$date","v":1749479205011,"h":"2025-06-09T14:26:45.011Z"},"updatedAt":{"$wrap":"$date","v":1749479205011,"h":"2025-06-09T14:26:45.011Z"}}
+{"k":"0000000080","o":"0000000277","v":"001"}
+{"_id":12,"_uid":12,"_dt":1749479205013,"_s":"d9862dd9f051100faf290e62d214013b"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"5","_id":{"$wrap":"$oid","v":12},"createdAt":{"$wrap":"$date","v":1749479205013,"h":"2025-06-09T14:26:45.013Z"},"updatedAt":{"$wrap":"$date","v":1749479205013,"h":"2025-06-09T14:26:45.013Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":13,"_uid":13,"_dt":1749479205014,"_s":"343d15c8cca7225123f826eef0caf9d6"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"5","_id":{"$wrap":"$oid","v":13},"createdAt":{"$wrap":"$date","v":1749479205014,"h":"2025-06-09T14:26:45.014Z"},"updatedAt":{"$wrap":"$date","v":1749479205014,"h":"2025-06-09T14:26:45.014Z"}}
+{"k":"0000000080","o":"0000000284","v":"001"}
+{"_id":14,"_uid":14,"_dt":1749479236827,"_s":"7437f5624b34c32ff7ff84fe8f56168a"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"6","_id":{"$wrap":"$oid","v":14},"createdAt":{"$wrap":"$date","v":1749479236827,"h":"2025-06-09T14:27:16.827Z"},"updatedAt":{"$wrap":"$date","v":1749479236827,"h":"2025-06-09T14:27:16.827Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":15,"_uid":15,"_dt":1749479236830,"_s":"2b00d4b79906d8dda764c8faf147220d"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"6","_id":{"$wrap":"$oid","v":15},"createdAt":{"$wrap":"$date","v":1749479236829,"h":"2025-06-09T14:27:16.829Z"},"updatedAt":{"$wrap":"$date","v":1749479236829,"h":"2025-06-09T14:27:16.829Z"}}
+{"k":"0000000080","o":"0000000273","v":"001"}
+{"_id":16,"_uid":16,"_dt":1749479236832,"_s":"6bbae731ed9c558c551419b90c45b5ef"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"6","_id":{"$wrap":"$oid","v":16},"createdAt":{"$wrap":"$date","v":1749479236832,"h":"2025-06-09T14:27:16.832Z"},"updatedAt":{"$wrap":"$date","v":1749479236832,"h":"2025-06-09T14:27:16.832Z"}}
+{"k":"0000000080","o":"0000000281","v":"001"}
+{"_id":17,"_uid":17,"_dt":1749479236835,"_s":"e0f9bb36cbfa84b7019253dab20714fe"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"6","_id":{"$wrap":"$oid","v":17},"createdAt":{"$wrap":"$date","v":1749479236834,"h":"2025-06-09T14:27:16.834Z"},"updatedAt":{"$wrap":"$date","v":1749479236834,"h":"2025-06-09T14:27:16.834Z"}}
+{"k":"0000000080","o":"0000000277","v":"001"}
+{"_id":18,"_uid":18,"_dt":1749479236836,"_s":"1cf12690edeae82258fcb03132cd09e7"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"6","_id":{"$wrap":"$oid","v":18},"createdAt":{"$wrap":"$date","v":1749479236836,"h":"2025-06-09T14:27:16.836Z"},"updatedAt":{"$wrap":"$date","v":1749479236836,"h":"2025-06-09T14:27:16.836Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":19,"_uid":19,"_dt":1749479236838,"_s":"98a01fbc257c3735a54e804c367164d7"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"6","_id":{"$wrap":"$oid","v":19},"createdAt":{"$wrap":"$date","v":1749479236838,"h":"2025-06-09T14:27:16.838Z"},"updatedAt":{"$wrap":"$date","v":1749479236838,"h":"2025-06-09T14:27:16.838Z"}}
+{"k":"0000000080","o":"0000000284","v":"001"}
+{"_id":20,"_uid":20,"_dt":1749479270511,"_s":"9df6cdc908e591c40137e303f7ad8c46"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"7","_id":{"$wrap":"$oid","v":20},"createdAt":{"$wrap":"$date","v":1749479270511,"h":"2025-06-09T14:27:50.511Z"},"updatedAt":{"$wrap":"$date","v":1749479270511,"h":"2025-06-09T14:27:50.511Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":21,"_uid":21,"_dt":1749479270513,"_s":"fdf3ae475caf706513ea1c7008d10d18"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"7","_id":{"$wrap":"$oid","v":21},"createdAt":{"$wrap":"$date","v":1749479270513,"h":"2025-06-09T14:27:50.513Z"},"updatedAt":{"$wrap":"$date","v":1749479270513,"h":"2025-06-09T14:27:50.513Z"}}
+{"k":"0000000080","o":"0000000273","v":"001"}
+{"_id":22,"_uid":22,"_dt":1749479270516,"_s":"eaffc3c97e2db03c6ae1cab83a42880f"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"7","_id":{"$wrap":"$oid","v":22},"createdAt":{"$wrap":"$date","v":1749479270515,"h":"2025-06-09T14:27:50.515Z"},"updatedAt":{"$wrap":"$date","v":1749479270515,"h":"2025-06-09T14:27:50.515Z"}}
+{"k":"0000000080","o":"0000000281","v":"001"}
+{"_id":23,"_uid":23,"_dt":1749479270518,"_s":"4bee87ff6cf676d1ccd4edb573d05a99"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"7","_id":{"$wrap":"$oid","v":23},"createdAt":{"$wrap":"$date","v":1749479270517,"h":"2025-06-09T14:27:50.517Z"},"updatedAt":{"$wrap":"$date","v":1749479270517,"h":"2025-06-09T14:27:50.517Z"}}
+{"k":"0000000080","o":"0000000277","v":"001"}
+{"_id":24,"_uid":24,"_dt":1749479270520,"_s":"5b7eb3775b1b1ee0ef5b11dff529d134"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"7","_id":{"$wrap":"$oid","v":24},"createdAt":{"$wrap":"$date","v":1749479270519,"h":"2025-06-09T14:27:50.519Z"},"updatedAt":{"$wrap":"$date","v":1749479270519,"h":"2025-06-09T14:27:50.519Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":25,"_uid":25,"_dt":1749479270521,"_s":"91ff47b4e2333d8e2785e9e7be2ee915"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"7","_id":{"$wrap":"$oid","v":25},"createdAt":{"$wrap":"$date","v":1749479270521,"h":"2025-06-09T14:27:50.521Z"},"updatedAt":{"$wrap":"$date","v":1749479270521,"h":"2025-06-09T14:27:50.521Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":26,"_uid":26,"_dt":1749479352238,"_s":"75dc38256bc382af576203e15ba9fa8d"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"10","_id":{"$wrap":"$oid","v":26},"createdAt":{"$wrap":"$date","v":1749479352238,"h":"2025-06-09T14:29:12.238Z"},"updatedAt":{"$wrap":"$date","v":1749479352238,"h":"2025-06-09T14:29:12.238Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":27,"_uid":27,"_dt":1749479352241,"_s":"99e6f20d6ef2509d28016d8dc1246616"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"10","_id":{"$wrap":"$oid","v":27},"createdAt":{"$wrap":"$date","v":1749479352241,"h":"2025-06-09T14:29:12.241Z"},"updatedAt":{"$wrap":"$date","v":1749479352241,"h":"2025-06-09T14:29:12.241Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":28,"_uid":28,"_dt":1749479352243,"_s":"2a6221308ec44b6e23f711ece0d46ba4"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"10","_id":{"$wrap":"$oid","v":28},"createdAt":{"$wrap":"$date","v":1749479352243,"h":"2025-06-09T14:29:12.243Z"},"updatedAt":{"$wrap":"$date","v":1749479352243,"h":"2025-06-09T14:29:12.243Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":29,"_uid":29,"_dt":1749479352245,"_s":"4416d178c8f9a4f944a60dea6d96e2b8"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"10","_id":{"$wrap":"$oid","v":29},"createdAt":{"$wrap":"$date","v":1749479352245,"h":"2025-06-09T14:29:12.245Z"},"updatedAt":{"$wrap":"$date","v":1749479352245,"h":"2025-06-09T14:29:12.245Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":30,"_uid":30,"_dt":1749479352247,"_s":"b74ec8712872f7c2ca02f13dc1cead35"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"10","_id":{"$wrap":"$oid","v":30},"createdAt":{"$wrap":"$date","v":1749479352247,"h":"2025-06-09T14:29:12.247Z"},"updatedAt":{"$wrap":"$date","v":1749479352247,"h":"2025-06-09T14:29:12.247Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":31,"_uid":31,"_dt":1749479352248,"_s":"393d287505017b91c05b1f54435e79cd"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"10","_id":{"$wrap":"$oid","v":31},"createdAt":{"$wrap":"$date","v":1749479352248,"h":"2025-06-09T14:29:12.248Z"},"updatedAt":{"$wrap":"$date","v":1749479352248,"h":"2025-06-09T14:29:12.248Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":32,"_uid":32,"_dt":1749479389043,"_s":"684ab4ace2074a60de8c210851960faa"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"13","_id":{"$wrap":"$oid","v":32},"createdAt":{"$wrap":"$date","v":1749479389043,"h":"2025-06-09T14:29:49.043Z"},"updatedAt":{"$wrap":"$date","v":1749479389043,"h":"2025-06-09T14:29:49.043Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":33,"_uid":33,"_dt":1749479389047,"_s":"c9ca6def5f08e95ff27fd979eb67c930"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"13","_id":{"$wrap":"$oid","v":33},"createdAt":{"$wrap":"$date","v":1749479389047,"h":"2025-06-09T14:29:49.047Z"},"updatedAt":{"$wrap":"$date","v":1749479389047,"h":"2025-06-09T14:29:49.047Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":34,"_uid":34,"_dt":1749479389051,"_s":"9fa88526e2753fcc25c60ef40c1ee005"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"13","_id":{"$wrap":"$oid","v":34},"createdAt":{"$wrap":"$date","v":1749479389051,"h":"2025-06-09T14:29:49.051Z"},"updatedAt":{"$wrap":"$date","v":1749479389051,"h":"2025-06-09T14:29:49.051Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":35,"_uid":35,"_dt":1749479389054,"_s":"10654fdc99476e6f28286597363f6b90"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"13","_id":{"$wrap":"$oid","v":35},"createdAt":{"$wrap":"$date","v":1749479389053,"h":"2025-06-09T14:29:49.053Z"},"updatedAt":{"$wrap":"$date","v":1749479389053,"h":"2025-06-09T14:29:49.053Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":36,"_uid":36,"_dt":1749479389057,"_s":"f0276511a54f3553944710e517c2278d"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"13","_id":{"$wrap":"$oid","v":36},"createdAt":{"$wrap":"$date","v":1749479389056,"h":"2025-06-09T14:29:49.056Z"},"updatedAt":{"$wrap":"$date","v":1749479389056,"h":"2025-06-09T14:29:49.056Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":37,"_uid":37,"_dt":1749479389060,"_s":"572b1d3d6ab9ae50248ad5c4331246f0"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"13","_id":{"$wrap":"$oid","v":37},"createdAt":{"$wrap":"$date","v":1749479389059,"h":"2025-06-09T14:29:49.059Z"},"updatedAt":{"$wrap":"$date","v":1749479389059,"h":"2025-06-09T14:29:49.059Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":38,"_uid":38,"_dt":1749479425159,"_s":"03ad5cb179ffb4f63736c24894a2a696"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"16","_id":{"$wrap":"$oid","v":38},"createdAt":{"$wrap":"$date","v":1749479425158,"h":"2025-06-09T14:30:25.158Z"},"updatedAt":{"$wrap":"$date","v":1749479425158,"h":"2025-06-09T14:30:25.158Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":39,"_uid":39,"_dt":1749479425161,"_s":"8d65cbc0ba8d67148712182e4dc1e102"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"16","_id":{"$wrap":"$oid","v":39},"createdAt":{"$wrap":"$date","v":1749479425161,"h":"2025-06-09T14:30:25.161Z"},"updatedAt":{"$wrap":"$date","v":1749479425161,"h":"2025-06-09T14:30:25.161Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":40,"_uid":40,"_dt":1749479425164,"_s":"f21793d868326277385e61f1464b10b5"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"16","_id":{"$wrap":"$oid","v":40},"createdAt":{"$wrap":"$date","v":1749479425164,"h":"2025-06-09T14:30:25.164Z"},"updatedAt":{"$wrap":"$date","v":1749479425164,"h":"2025-06-09T14:30:25.164Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":41,"_uid":41,"_dt":1749479425166,"_s":"46e6744561f17da59cee7837d3a75a45"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"16","_id":{"$wrap":"$oid","v":41},"createdAt":{"$wrap":"$date","v":1749479425166,"h":"2025-06-09T14:30:25.166Z"},"updatedAt":{"$wrap":"$date","v":1749479425166,"h":"2025-06-09T14:30:25.166Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":42,"_uid":42,"_dt":1749479425168,"_s":"d3ea37b3401129aca2e54d576223c5dd"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"16","_id":{"$wrap":"$oid","v":42},"createdAt":{"$wrap":"$date","v":1749479425167,"h":"2025-06-09T14:30:25.167Z"},"updatedAt":{"$wrap":"$date","v":1749479425167,"h":"2025-06-09T14:30:25.167Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":43,"_uid":43,"_dt":1749479425170,"_s":"2776face20a03f7b21fb3764cae67f83"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"16","_id":{"$wrap":"$oid","v":43},"createdAt":{"$wrap":"$date","v":1749479425170,"h":"2025-06-09T14:30:25.170Z"},"updatedAt":{"$wrap":"$date","v":1749479425170,"h":"2025-06-09T14:30:25.170Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":44,"_uid":44,"_dt":1749479474953,"_s":"e21e962ef4ad66ea6af1bff2eab8c116"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"19","_id":{"$wrap":"$oid","v":44},"createdAt":{"$wrap":"$date","v":1749479474953,"h":"2025-06-09T14:31:14.953Z"},"updatedAt":{"$wrap":"$date","v":1749479474953,"h":"2025-06-09T14:31:14.953Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":45,"_uid":45,"_dt":1749479474955,"_s":"92c37fd9f1dcba53b3707fb53177386e"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"19","_id":{"$wrap":"$oid","v":45},"createdAt":{"$wrap":"$date","v":1749479474955,"h":"2025-06-09T14:31:14.955Z"},"updatedAt":{"$wrap":"$date","v":1749479474955,"h":"2025-06-09T14:31:14.955Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":46,"_uid":46,"_dt":1749479474958,"_s":"d00677d45038f1787394ccdd39a0bc5a"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"19","_id":{"$wrap":"$oid","v":46},"createdAt":{"$wrap":"$date","v":1749479474958,"h":"2025-06-09T14:31:14.958Z"},"updatedAt":{"$wrap":"$date","v":1749479474958,"h":"2025-06-09T14:31:14.958Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":47,"_uid":47,"_dt":1749479474961,"_s":"c1438e1074b60af298225504727dd33e"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"19","_id":{"$wrap":"$oid","v":47},"createdAt":{"$wrap":"$date","v":1749479474960,"h":"2025-06-09T14:31:14.960Z"},"updatedAt":{"$wrap":"$date","v":1749479474960,"h":"2025-06-09T14:31:14.960Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":48,"_uid":48,"_dt":1749479474963,"_s":"590d51836d04348894207315f7fff2f9"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"19","_id":{"$wrap":"$oid","v":48},"createdAt":{"$wrap":"$date","v":1749479474962,"h":"2025-06-09T14:31:14.962Z"},"updatedAt":{"$wrap":"$date","v":1749479474962,"h":"2025-06-09T14:31:14.962Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":49,"_uid":49,"_dt":1749479474965,"_s":"8c5e9b3ad42ed321139f940ab5dab2f4"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"19","_id":{"$wrap":"$oid","v":49},"createdAt":{"$wrap":"$date","v":1749479474965,"h":"2025-06-09T14:31:14.965Z"},"updatedAt":{"$wrap":"$date","v":1749479474965,"h":"2025-06-09T14:31:14.965Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":50,"_uid":50,"_dt":1749479512775,"_s":"2b7fb7e1f6257096a42765ccb184f922"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"22","_id":{"$wrap":"$oid","v":50},"createdAt":{"$wrap":"$date","v":1749479512774,"h":"2025-06-09T14:31:52.774Z"},"updatedAt":{"$wrap":"$date","v":1749479512774,"h":"2025-06-09T14:31:52.774Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":51,"_uid":51,"_dt":1749479512777,"_s":"709de78b574d559ec30edc8332b38ef8"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"22","_id":{"$wrap":"$oid","v":51},"createdAt":{"$wrap":"$date","v":1749479512777,"h":"2025-06-09T14:31:52.777Z"},"updatedAt":{"$wrap":"$date","v":1749479512777,"h":"2025-06-09T14:31:52.777Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":52,"_uid":52,"_dt":1749479512780,"_s":"9a79637c8351e3d1074d15c00fc7d2ce"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"22","_id":{"$wrap":"$oid","v":52},"createdAt":{"$wrap":"$date","v":1749479512780,"h":"2025-06-09T14:31:52.780Z"},"updatedAt":{"$wrap":"$date","v":1749479512780,"h":"2025-06-09T14:31:52.780Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":53,"_uid":53,"_dt":1749479512783,"_s":"e37a1e72509e5fefdc9a825e807ef89b"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"22","_id":{"$wrap":"$oid","v":53},"createdAt":{"$wrap":"$date","v":1749479512783,"h":"2025-06-09T14:31:52.783Z"},"updatedAt":{"$wrap":"$date","v":1749479512783,"h":"2025-06-09T14:31:52.783Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":54,"_uid":54,"_dt":1749479512786,"_s":"1ce661796002af4c7d5bf80c54388b5c"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"22","_id":{"$wrap":"$oid","v":54},"createdAt":{"$wrap":"$date","v":1749479512786,"h":"2025-06-09T14:31:52.786Z"},"updatedAt":{"$wrap":"$date","v":1749479512786,"h":"2025-06-09T14:31:52.786Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":55,"_uid":55,"_dt":1749479512789,"_s":"6dad39ebf1d81db43f62122497d23455"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"22","_id":{"$wrap":"$oid","v":55},"createdAt":{"$wrap":"$date","v":1749479512789,"h":"2025-06-09T14:31:52.789Z"},"updatedAt":{"$wrap":"$date","v":1749479512789,"h":"2025-06-09T14:31:52.789Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":56,"_uid":56,"_dt":1749479584978,"_s":"9e3cd2a6f03c12d47a872530e5af6b8e"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"30","_id":{"$wrap":"$oid","v":56},"createdAt":{"$wrap":"$date","v":1749479584978,"h":"2025-06-09T14:33:04.978Z"},"updatedAt":{"$wrap":"$date","v":1749479584978,"h":"2025-06-09T14:33:04.978Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":57,"_uid":57,"_dt":1749479584982,"_s":"e3a444049ad571b5d3ab3351b9860e91"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"30","_id":{"$wrap":"$oid","v":57},"createdAt":{"$wrap":"$date","v":1749479584982,"h":"2025-06-09T14:33:04.982Z"},"updatedAt":{"$wrap":"$date","v":1749479584982,"h":"2025-06-09T14:33:04.982Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":58,"_uid":58,"_dt":1749479584987,"_s":"e48cc5db044fc2117f42743e1d1c07c4"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"30","_id":{"$wrap":"$oid","v":58},"createdAt":{"$wrap":"$date","v":1749479584986,"h":"2025-06-09T14:33:04.986Z"},"updatedAt":{"$wrap":"$date","v":1749479584986,"h":"2025-06-09T14:33:04.986Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":59,"_uid":59,"_dt":1749479584991,"_s":"296ede83693d28c21969095104488590"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"30","_id":{"$wrap":"$oid","v":59},"createdAt":{"$wrap":"$date","v":1749479584991,"h":"2025-06-09T14:33:04.991Z"},"updatedAt":{"$wrap":"$date","v":1749479584991,"h":"2025-06-09T14:33:04.991Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":60,"_uid":60,"_dt":1749479584996,"_s":"3df3ea89ec5f58cb15e980a852ff2352"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"30","_id":{"$wrap":"$oid","v":60},"createdAt":{"$wrap":"$date","v":1749479584996,"h":"2025-06-09T14:33:04.996Z"},"updatedAt":{"$wrap":"$date","v":1749479584996,"h":"2025-06-09T14:33:04.996Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":61,"_uid":61,"_dt":1749479585001,"_s":"e2ea6fe3e3e9de1998b0cb2a32d34c9a"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"30","_id":{"$wrap":"$oid","v":61},"createdAt":{"$wrap":"$date","v":1749479585001,"h":"2025-06-09T14:33:05.001Z"},"updatedAt":{"$wrap":"$date","v":1749479585001,"h":"2025-06-09T14:33:05.001Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":62,"_uid":62,"_dt":1749479636809,"_s":"deca18845e0cca3e7a790d3cabd95d89"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"38","_id":{"$wrap":"$oid","v":62},"createdAt":{"$wrap":"$date","v":1749479636808,"h":"2025-06-09T14:33:56.808Z"},"updatedAt":{"$wrap":"$date","v":1749479636808,"h":"2025-06-09T14:33:56.808Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":63,"_uid":63,"_dt":1749479636813,"_s":"473067f1978429349d1c10cc69e7a431"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"38","_id":{"$wrap":"$oid","v":63},"createdAt":{"$wrap":"$date","v":1749479636813,"h":"2025-06-09T14:33:56.813Z"},"updatedAt":{"$wrap":"$date","v":1749479636813,"h":"2025-06-09T14:33:56.813Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":64,"_uid":64,"_dt":1749479636817,"_s":"bb757c143ae281089812419ad2336da7"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"38","_id":{"$wrap":"$oid","v":64},"createdAt":{"$wrap":"$date","v":1749479636817,"h":"2025-06-09T14:33:56.817Z"},"updatedAt":{"$wrap":"$date","v":1749479636817,"h":"2025-06-09T14:33:56.817Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":65,"_uid":65,"_dt":1749479636821,"_s":"c30ad486ac5574fa5ddb336a34ed9b78"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"38","_id":{"$wrap":"$oid","v":65},"createdAt":{"$wrap":"$date","v":1749479636821,"h":"2025-06-09T14:33:56.821Z"},"updatedAt":{"$wrap":"$date","v":1749479636821,"h":"2025-06-09T14:33:56.821Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":66,"_uid":66,"_dt":1749479636825,"_s":"5ff23aa563247f2d00e340165ac3248c"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"38","_id":{"$wrap":"$oid","v":66},"createdAt":{"$wrap":"$date","v":1749479636825,"h":"2025-06-09T14:33:56.825Z"},"updatedAt":{"$wrap":"$date","v":1749479636825,"h":"2025-06-09T14:33:56.825Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":67,"_uid":67,"_dt":1749479636829,"_s":"fdb5062fd782b3655253a809af505328"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"38","_id":{"$wrap":"$oid","v":67},"createdAt":{"$wrap":"$date","v":1749479636829,"h":"2025-06-09T14:33:56.829Z"},"updatedAt":{"$wrap":"$date","v":1749479636829,"h":"2025-06-09T14:33:56.829Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":68,"_uid":68,"_dt":1749479728263,"_s":"87a6e578d15575ff16f9b0fd0ebf59b0"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"46","_id":{"$wrap":"$oid","v":68},"createdAt":{"$wrap":"$date","v":1749479728263,"h":"2025-06-09T14:35:28.263Z"},"updatedAt":{"$wrap":"$date","v":1749479728263,"h":"2025-06-09T14:35:28.263Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":69,"_uid":69,"_dt":1749479728268,"_s":"a9faf7e859a07bd34979c94defcb1a0f"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"46","_id":{"$wrap":"$oid","v":69},"createdAt":{"$wrap":"$date","v":1749479728268,"h":"2025-06-09T14:35:28.268Z"},"updatedAt":{"$wrap":"$date","v":1749479728268,"h":"2025-06-09T14:35:28.268Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":70,"_uid":70,"_dt":1749479728273,"_s":"7f58d8f828cc479bbd35f24fb37b1a6b"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"46","_id":{"$wrap":"$oid","v":70},"createdAt":{"$wrap":"$date","v":1749479728273,"h":"2025-06-09T14:35:28.273Z"},"updatedAt":{"$wrap":"$date","v":1749479728273,"h":"2025-06-09T14:35:28.273Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":71,"_uid":71,"_dt":1749479728278,"_s":"5999035b115d4757a7db2880c4ddf06e"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"46","_id":{"$wrap":"$oid","v":71},"createdAt":{"$wrap":"$date","v":1749479728278,"h":"2025-06-09T14:35:28.278Z"},"updatedAt":{"$wrap":"$date","v":1749479728278,"h":"2025-06-09T14:35:28.278Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":72,"_uid":72,"_dt":1749479728283,"_s":"2977b3cb13f8b0d7f67b58fb2f2d9c8c"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"46","_id":{"$wrap":"$oid","v":72},"createdAt":{"$wrap":"$date","v":1749479728283,"h":"2025-06-09T14:35:28.283Z"},"updatedAt":{"$wrap":"$date","v":1749479728283,"h":"2025-06-09T14:35:28.283Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":73,"_uid":73,"_dt":1749479728289,"_s":"8f370d3cacd6672d7169e39adea2d44e"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"46","_id":{"$wrap":"$oid","v":73},"createdAt":{"$wrap":"$date","v":1749479728288,"h":"2025-06-09T14:35:28.288Z"},"updatedAt":{"$wrap":"$date","v":1749479728288,"h":"2025-06-09T14:35:28.288Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":74,"_uid":74,"_dt":1749479795408,"_s":"e98de37125062ccfc404cb85c5ddc788"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"54","_id":{"$wrap":"$oid","v":74},"createdAt":{"$wrap":"$date","v":1749479795407,"h":"2025-06-09T14:36:35.407Z"},"updatedAt":{"$wrap":"$date","v":1749479795407,"h":"2025-06-09T14:36:35.407Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":75,"_uid":75,"_dt":1749479795414,"_s":"640b7219ffab1aea80764978954cfb52"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"54","_id":{"$wrap":"$oid","v":75},"createdAt":{"$wrap":"$date","v":1749479795414,"h":"2025-06-09T14:36:35.414Z"},"updatedAt":{"$wrap":"$date","v":1749479795414,"h":"2025-06-09T14:36:35.414Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":76,"_uid":76,"_dt":1749479795420,"_s":"b511773a5ea4bb24476a01e13c420827"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"54","_id":{"$wrap":"$oid","v":76},"createdAt":{"$wrap":"$date","v":1749479795420,"h":"2025-06-09T14:36:35.420Z"},"updatedAt":{"$wrap":"$date","v":1749479795420,"h":"2025-06-09T14:36:35.420Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":77,"_uid":77,"_dt":1749479795426,"_s":"ff7784e761c3621a41bc32c6d2a0810e"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"54","_id":{"$wrap":"$oid","v":77},"createdAt":{"$wrap":"$date","v":1749479795426,"h":"2025-06-09T14:36:35.426Z"},"updatedAt":{"$wrap":"$date","v":1749479795426,"h":"2025-06-09T14:36:35.426Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":78,"_uid":78,"_dt":1749479795432,"_s":"acfa9d57bc702e1de5d32cd550a00e76"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"54","_id":{"$wrap":"$oid","v":78},"createdAt":{"$wrap":"$date","v":1749479795432,"h":"2025-06-09T14:36:35.432Z"},"updatedAt":{"$wrap":"$date","v":1749479795432,"h":"2025-06-09T14:36:35.432Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":79,"_uid":79,"_dt":1749479795438,"_s":"304ed2a4c91879ff22d0c419c95ef6ce"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"54","_id":{"$wrap":"$oid","v":79},"createdAt":{"$wrap":"$date","v":1749479795438,"h":"2025-06-09T14:36:35.438Z"},"updatedAt":{"$wrap":"$date","v":1749479795438,"h":"2025-06-09T14:36:35.438Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":80,"_uid":80,"_dt":1749479841236,"_s":"1c9c5691ed6e34898299fbc84fa14000"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"62","_id":{"$wrap":"$oid","v":80},"createdAt":{"$wrap":"$date","v":1749479841236,"h":"2025-06-09T14:37:21.236Z"},"updatedAt":{"$wrap":"$date","v":1749479841236,"h":"2025-06-09T14:37:21.236Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":81,"_uid":81,"_dt":1749479841243,"_s":"79200460b12719ee4a51bdb52cc2ddfb"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"62","_id":{"$wrap":"$oid","v":81},"createdAt":{"$wrap":"$date","v":1749479841242,"h":"2025-06-09T14:37:21.242Z"},"updatedAt":{"$wrap":"$date","v":1749479841242,"h":"2025-06-09T14:37:21.242Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":82,"_uid":82,"_dt":1749479841269,"_s":"280c3721de253bfcc151175abec410c6"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"62","_id":{"$wrap":"$oid","v":82},"createdAt":{"$wrap":"$date","v":1749479841268,"h":"2025-06-09T14:37:21.268Z"},"updatedAt":{"$wrap":"$date","v":1749479841268,"h":"2025-06-09T14:37:21.268Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":83,"_uid":83,"_dt":1749479841277,"_s":"61370e77d26f52a8686a712c51a57a04"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"62","_id":{"$wrap":"$oid","v":83},"createdAt":{"$wrap":"$date","v":1749479841277,"h":"2025-06-09T14:37:21.277Z"},"updatedAt":{"$wrap":"$date","v":1749479841277,"h":"2025-06-09T14:37:21.277Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":84,"_uid":84,"_dt":1749479841285,"_s":"b65c02d345b952665ab51e4d81dc2ae3"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"62","_id":{"$wrap":"$oid","v":84},"createdAt":{"$wrap":"$date","v":1749479841284,"h":"2025-06-09T14:37:21.284Z"},"updatedAt":{"$wrap":"$date","v":1749479841284,"h":"2025-06-09T14:37:21.284Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":85,"_uid":85,"_dt":1749479841296,"_s":"414ef1c0838a845eabbfcfca081b2c0a"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"62","_id":{"$wrap":"$oid","v":85},"createdAt":{"$wrap":"$date","v":1749479841295,"h":"2025-06-09T14:37:21.295Z"},"updatedAt":{"$wrap":"$date","v":1749479841295,"h":"2025-06-09T14:37:21.295Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":86,"_uid":86,"_dt":1749479883954,"_s":"8edc94e567854b8c5939d8fe9af2fc87"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"70","_id":{"$wrap":"$oid","v":86},"createdAt":{"$wrap":"$date","v":1749479883953,"h":"2025-06-09T14:38:03.953Z"},"updatedAt":{"$wrap":"$date","v":1749479883953,"h":"2025-06-09T14:38:03.953Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":87,"_uid":87,"_dt":1749479883961,"_s":"478c5f5d1d67c019f982331fbe1e83f1"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"70","_id":{"$wrap":"$oid","v":87},"createdAt":{"$wrap":"$date","v":1749479883961,"h":"2025-06-09T14:38:03.961Z"},"updatedAt":{"$wrap":"$date","v":1749479883961,"h":"2025-06-09T14:38:03.961Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":88,"_uid":88,"_dt":1749479883969,"_s":"aeae1622aad4df40f11ca3bf37bd6e05"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"70","_id":{"$wrap":"$oid","v":88},"createdAt":{"$wrap":"$date","v":1749479883969,"h":"2025-06-09T14:38:03.969Z"},"updatedAt":{"$wrap":"$date","v":1749479883969,"h":"2025-06-09T14:38:03.969Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":89,"_uid":89,"_dt":1749479883977,"_s":"c46fdc649d7beacc044a2733e037c662"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"70","_id":{"$wrap":"$oid","v":89},"createdAt":{"$wrap":"$date","v":1749479883977,"h":"2025-06-09T14:38:03.977Z"},"updatedAt":{"$wrap":"$date","v":1749479883977,"h":"2025-06-09T14:38:03.977Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":90,"_uid":90,"_dt":1749479883985,"_s":"87fb3a688b49f939326cb59861331016"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"70","_id":{"$wrap":"$oid","v":90},"createdAt":{"$wrap":"$date","v":1749479883985,"h":"2025-06-09T14:38:03.985Z"},"updatedAt":{"$wrap":"$date","v":1749479883985,"h":"2025-06-09T14:38:03.985Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":91,"_uid":91,"_dt":1749479883993,"_s":"ef501e4988ab05800876e35338c4ff69"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"70","_id":{"$wrap":"$oid","v":91},"createdAt":{"$wrap":"$date","v":1749479883993,"h":"2025-06-09T14:38:03.993Z"},"updatedAt":{"$wrap":"$date","v":1749479883993,"h":"2025-06-09T14:38:03.993Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":92,"_uid":92,"_dt":1749479933604,"_s":"559b8d6aec4c45700638f52e270998f3"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"78","_id":{"$wrap":"$oid","v":92},"createdAt":{"$wrap":"$date","v":1749479933604,"h":"2025-06-09T14:38:53.604Z"},"updatedAt":{"$wrap":"$date","v":1749479933604,"h":"2025-06-09T14:38:53.604Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":93,"_uid":93,"_dt":1749479933612,"_s":"7af43c48a31e2182450635b4636dc508"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"78","_id":{"$wrap":"$oid","v":93},"createdAt":{"$wrap":"$date","v":1749479933612,"h":"2025-06-09T14:38:53.612Z"},"updatedAt":{"$wrap":"$date","v":1749479933612,"h":"2025-06-09T14:38:53.612Z"}}
+{"k":"0000000080","o":"0000000274","v":"001"}
+{"_id":94,"_uid":94,"_dt":1749479933621,"_s":"83b59206a7fae895413a227771559f7b"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"78","_id":{"$wrap":"$oid","v":94},"createdAt":{"$wrap":"$date","v":1749479933621,"h":"2025-06-09T14:38:53.621Z"},"updatedAt":{"$wrap":"$date","v":1749479933621,"h":"2025-06-09T14:38:53.621Z"}}
+{"k":"0000000080","o":"0000000282","v":"001"}
+{"_id":95,"_uid":95,"_dt":1749479933630,"_s":"21a74ee8d8a9811da3ba8b3eddd59085"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"78","_id":{"$wrap":"$oid","v":95},"createdAt":{"$wrap":"$date","v":1749479933630,"h":"2025-06-09T14:38:53.630Z"},"updatedAt":{"$wrap":"$date","v":1749479933630,"h":"2025-06-09T14:38:53.630Z"}}
+{"k":"0000000080","o":"0000000278","v":"001"}
+{"_id":96,"_uid":96,"_dt":1749479933640,"_s":"5b9d8f3ab85f759a3bd176e390cb2c4b"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"78","_id":{"$wrap":"$oid","v":96},"createdAt":{"$wrap":"$date","v":1749479933640,"h":"2025-06-09T14:38:53.640Z"},"updatedAt":{"$wrap":"$date","v":1749479933640,"h":"2025-06-09T14:38:53.640Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":97,"_uid":97,"_dt":1749479933650,"_s":"ae6f612cb4fb1447e3367a53b3974729"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"78","_id":{"$wrap":"$oid","v":97},"createdAt":{"$wrap":"$date","v":1749479933650,"h":"2025-06-09T14:38:53.650Z"},"updatedAt":{"$wrap":"$date","v":1749479933650,"h":"2025-06-09T14:38:53.650Z"}}
+{"k":"0000000080","o":"0000000285","v":"001"}
+{"_id":98,"_uid":98,"_dt":1749479979328,"_s":"e7933e1b414f4eebcea854007badb947"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"86","_id":{"$wrap":"$oid","v":98},"createdAt":{"$wrap":"$date","v":1749479979328,"h":"2025-06-09T14:39:39.328Z"},"updatedAt":{"$wrap":"$date","v":1749479979328,"h":"2025-06-09T14:39:39.328Z"}}
+{"k":"0000000080","o":"0000000283","v":"001"}
+{"_id":99,"_uid":99,"_dt":1749479979337,"_s":"bd2cc19672bef35ab6340a9d212e80af"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"86","_id":{"$wrap":"$oid","v":99},"createdAt":{"$wrap":"$date","v":1749479979337,"h":"2025-06-09T14:39:39.337Z"},"updatedAt":{"$wrap":"$date","v":1749479979337,"h":"2025-06-09T14:39:39.337Z"}}
+{"k":"0000000082","o":"0000000275","v":"001"}
+{"_id":100,"_uid":100,"_dt":1749479979346,"_s":"ded774d287c74b5c784d2774d7238d2b"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"86","_id":{"$wrap":"$oid","v":100},"createdAt":{"$wrap":"$date","v":1749479979346,"h":"2025-06-09T14:39:39.346Z"},"updatedAt":{"$wrap":"$date","v":1749479979346,"h":"2025-06-09T14:39:39.346Z"}}
+{"k":"0000000082","o":"0000000283","v":"001"}
+{"_id":101,"_uid":101,"_dt":1749479979356,"_s":"5af642e713c46cb759c4a1960cc4a3b8"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"86","_id":{"$wrap":"$oid","v":101},"createdAt":{"$wrap":"$date","v":1749479979355,"h":"2025-06-09T14:39:39.355Z"},"updatedAt":{"$wrap":"$date","v":1749479979355,"h":"2025-06-09T14:39:39.355Z"}}
+{"k":"0000000082","o":"0000000279","v":"001"}
+{"_id":102,"_uid":102,"_dt":1749479979366,"_s":"31be93ae02d93b08335973ee2e3fd08a"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"86","_id":{"$wrap":"$oid","v":102},"createdAt":{"$wrap":"$date","v":1749479979366,"h":"2025-06-09T14:39:39.366Z"},"updatedAt":{"$wrap":"$date","v":1749479979366,"h":"2025-06-09T14:39:39.366Z"}}
+{"k":"0000000082","o":"0000000284","v":"001"}
+{"_id":103,"_uid":103,"_dt":1749479979377,"_s":"13bb344cf9adf030ff108c2da0f6fc86"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"86","_id":{"$wrap":"$oid","v":103},"createdAt":{"$wrap":"$date","v":1749479979376,"h":"2025-06-09T14:39:39.376Z"},"updatedAt":{"$wrap":"$date","v":1749479979376,"h":"2025-06-09T14:39:39.376Z"}}
+{"k":"0000000082","o":"0000000286","v":"001"}
+{"_id":104,"_uid":104,"_dt":1749480036350,"_s":"ec0d402da91f1553b4b6d0124bf2198e"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"99","_id":{"$wrap":"$oid","v":104},"createdAt":{"$wrap":"$date","v":1749480036350,"h":"2025-06-09T14:40:36.350Z"},"updatedAt":{"$wrap":"$date","v":1749480036350,"h":"2025-06-09T14:40:36.350Z"}}
+{"k":"0000000082","o":"0000000284","v":"001"}
+{"_id":105,"_uid":105,"_dt":1749480036361,"_s":"eff14854e52707d7d6baa03c26809110"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"99","_id":{"$wrap":"$oid","v":105},"createdAt":{"$wrap":"$date","v":1749480036361,"h":"2025-06-09T14:40:36.361Z"},"updatedAt":{"$wrap":"$date","v":1749480036361,"h":"2025-06-09T14:40:36.361Z"}}
+{"k":"0000000082","o":"0000000275","v":"001"}
+{"_id":106,"_uid":106,"_dt":1749480036373,"_s":"e418b6f82f9323401052b44497aa1a7a"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"99","_id":{"$wrap":"$oid","v":106},"createdAt":{"$wrap":"$date","v":1749480036372,"h":"2025-06-09T14:40:36.372Z"},"updatedAt":{"$wrap":"$date","v":1749480036372,"h":"2025-06-09T14:40:36.372Z"}}
+{"k":"0000000082","o":"0000000283","v":"001"}
+{"_id":107,"_uid":107,"_dt":1749480036383,"_s":"de01261598e9b37a8c033f136ef610a4"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"99","_id":{"$wrap":"$oid","v":107},"createdAt":{"$wrap":"$date","v":1749480036383,"h":"2025-06-09T14:40:36.383Z"},"updatedAt":{"$wrap":"$date","v":1749480036383,"h":"2025-06-09T14:40:36.383Z"}}
+{"k":"0000000082","o":"0000000279","v":"001"}
+{"_id":108,"_uid":108,"_dt":1749480036394,"_s":"206d64c986fbcc48a3452be40a27041a"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"99","_id":{"$wrap":"$oid","v":108},"createdAt":{"$wrap":"$date","v":1749480036394,"h":"2025-06-09T14:40:36.394Z"},"updatedAt":{"$wrap":"$date","v":1749480036394,"h":"2025-06-09T14:40:36.394Z"}}
+{"k":"0000000082","o":"0000000284","v":"001"}
+{"_id":109,"_uid":109,"_dt":1749480036405,"_s":"277911bf31693bf4fd537c1ced6aadb7"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"99","_id":{"$wrap":"$oid","v":109},"createdAt":{"$wrap":"$date","v":1749480036405,"h":"2025-06-09T14:40:36.405Z"},"updatedAt":{"$wrap":"$date","v":1749480036405,"h":"2025-06-09T14:40:36.405Z"}}
+{"k":"0000000082","o":"0000000287","v":"001"}
+{"_id":110,"_uid":110,"_dt":1749480129564,"_s":"c6298c35dc7bb94a3b83e7e49aaca479"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"112","_id":{"$wrap":"$oid","v":110},"createdAt":{"$wrap":"$date","v":1749480129564,"h":"2025-06-09T14:42:09.564Z"},"updatedAt":{"$wrap":"$date","v":1749480129564,"h":"2025-06-09T14:42:09.564Z"}}
+{"k":"0000000082","o":"0000000285","v":"001"}
+{"_id":111,"_uid":111,"_dt":1749480129576,"_s":"7caf583efc5a8233362478355e775cdf"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"112","_id":{"$wrap":"$oid","v":111},"createdAt":{"$wrap":"$date","v":1749480129576,"h":"2025-06-09T14:42:09.576Z"},"updatedAt":{"$wrap":"$date","v":1749480129576,"h":"2025-06-09T14:42:09.576Z"}}
+{"k":"0000000082","o":"0000000276","v":"001"}
+{"_id":112,"_uid":112,"_dt":1749480129588,"_s":"24beadd340d7d5d1eeb9fcd7b7707410"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"112","_id":{"$wrap":"$oid","v":112},"createdAt":{"$wrap":"$date","v":1749480129588,"h":"2025-06-09T14:42:09.588Z"},"updatedAt":{"$wrap":"$date","v":1749480129588,"h":"2025-06-09T14:42:09.588Z"}}
+{"k":"0000000082","o":"0000000284","v":"001"}
+{"_id":113,"_uid":113,"_dt":1749480129600,"_s":"b90c4e467ae618156ad8d8dad54f49bd"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"112","_id":{"$wrap":"$oid","v":113},"createdAt":{"$wrap":"$date","v":1749480129600,"h":"2025-06-09T14:42:09.600Z"},"updatedAt":{"$wrap":"$date","v":1749480129600,"h":"2025-06-09T14:42:09.600Z"}}
+{"k":"0000000082","o":"0000000280","v":"001"}
+{"_id":114,"_uid":114,"_dt":1749480129611,"_s":"81f18e98a11adb7fa478dc6906ae631a"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"112","_id":{"$wrap":"$oid","v":114},"createdAt":{"$wrap":"$date","v":1749480129611,"h":"2025-06-09T14:42:09.611Z"},"updatedAt":{"$wrap":"$date","v":1749480129611,"h":"2025-06-09T14:42:09.611Z"}}
+{"k":"0000000082","o":"0000000285","v":"001"}
+{"_id":115,"_uid":115,"_dt":1749480129621,"_s":"234c3bebfea0c6989dd03835d0277328"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"112","_id":{"$wrap":"$oid","v":115},"createdAt":{"$wrap":"$date","v":1749480129621,"h":"2025-06-09T14:42:09.621Z"},"updatedAt":{"$wrap":"$date","v":1749480129621,"h":"2025-06-09T14:42:09.621Z"}}
+{"k":"0000000082","o":"0000000287","v":"001"}
+{"_id":116,"_uid":116,"_dt":1749480188805,"_s":"e1515063a0205c19ad933c5ec931b90f"}
+{"name":"frontend","color":"#28a745","description":"Frontend development tasks","projectId":"125","_id":{"$wrap":"$oid","v":116},"createdAt":{"$wrap":"$date","v":1749480188804,"h":"2025-06-09T14:43:08.804Z"},"updatedAt":{"$wrap":"$date","v":1749480188804,"h":"2025-06-09T14:43:08.804Z"}}
+{"k":"0000000082","o":"0000000285","v":"001"}
+{"_id":117,"_uid":117,"_dt":1749480188824,"_s":"a0c24f0b418b051fd6d3b013617d5838"}
+{"name":"backend","color":"#dc3545","description":"Backend development tasks","projectId":"125","_id":{"$wrap":"$oid","v":117},"createdAt":{"$wrap":"$date","v":1749480188824,"h":"2025-06-09T14:43:08.824Z"},"updatedAt":{"$wrap":"$date","v":1749480188824,"h":"2025-06-09T14:43:08.824Z"}}
+{"k":"0000000082","o":"0000000276","v":"001"}
+{"_id":118,"_uid":118,"_dt":1749480188844,"_s":"04c257e20f4b248a200dc712e327d658"}
+{"name":"bug","color":"#ffc107","description":"Bug fixes and issues","projectId":"125","_id":{"$wrap":"$oid","v":118},"createdAt":{"$wrap":"$date","v":1749480188843,"h":"2025-06-09T14:43:08.843Z"},"updatedAt":{"$wrap":"$date","v":1749480188843,"h":"2025-06-09T14:43:08.843Z"}}
+{"k":"0000000082","o":"0000000284","v":"001"}
+{"_id":119,"_uid":119,"_dt":1749480188862,"_s":"76f4364b66f4029e09cc4e3397d94ea5"}
+{"name":"enhancement","color":"#17a2b8","description":"Feature enhancements","projectId":"125","_id":{"$wrap":"$oid","v":119},"createdAt":{"$wrap":"$date","v":1749480188861,"h":"2025-06-09T14:43:08.861Z"},"updatedAt":{"$wrap":"$date","v":1749480188861,"h":"2025-06-09T14:43:08.861Z"}}
+{"k":"0000000082","o":"0000000280","v":"001"}
+{"_id":120,"_uid":120,"_dt":1749480188882,"_s":"216a4fff8260845d19f3d81f4498549a"}
+{"name":"urgent","color":"#ff6b6b","description":"Urgent priority items","projectId":"125","_id":{"$wrap":"$oid","v":120},"createdAt":{"$wrap":"$date","v":1749480188882,"h":"2025-06-09T14:43:08.882Z"},"updatedAt":{"$wrap":"$date","v":1749480188882,"h":"2025-06-09T14:43:08.882Z"}}
+{"k":"0000000082","o":"0000000285","v":"001"}
+{"_id":121,"_uid":121,"_dt":1749480188902,"_s":"b05d33bb215244b1ab13da5cb2b0f6c2"}
+{"name":"documentation","color":"#6f42c1","description":"Documentation tasks","projectId":"125","_id":{"$wrap":"$oid","v":121},"createdAt":{"$wrap":"$date","v":1749480188902,"h":"2025-06-09T14:43:08.902Z"},"updatedAt":{"$wrap":"$date","v":1749480188902,"h":"2025-06-09T14:43:08.902Z"}}

@@ -9,7 +9,7 @@ class Tag {
   // Validation schema
   static getValidationSchema(isUpdate = false) {
     const schema = {
-      projectId: Joi.string().length(24), // ObjectID string
+      projectId: Joi.string(), // Relaxed: TingoDB ObjectID.toString() might not be 24 chars
       name: Joi.string().min(1).max(50),
       color: Joi.string().pattern(/^#[0-9a-fA-F]{6}$/).default('#007bff'), // Hex color
       description: Joi.string().max(200).allow('')
@@ -230,7 +230,7 @@ class Tag {
       try {
         const tag = await this.create({
           ...tagData,
-          projectId
+          projectId: projectId.toString() // Convert ObjectID to string
         });
         createdTags.push(tag);
       } catch (error) {
