@@ -3,11 +3,34 @@
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { 
+  ArrowRightIcon, 
+  SparklesIcon,
+  ChartBarIcon,
+  UserGroupIcon,
+  ClipboardDocumentCheckIcon,
+  BoltIcon,
+  ShieldCheckIcon,
+  ChevronDownIcon,
+  Bars3Icon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 
 export default function Home() {
   const { user } = useAuth();
   const router = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll effect for navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Redirect to dashboard if already logged in
   useEffect(() => {
@@ -16,188 +39,265 @@ export default function Home() {
     }
   }, [user, router]);
 
+  const features = [
+    {
+      icon: <ChartBarIcon className="w-8 h-8" />,
+      title: "Advanced Analytics",
+      description: "Get deep insights into project performance with real-time analytics and customizable dashboards.",
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      icon: <UserGroupIcon className="w-8 h-8" />,
+      title: "Team Collaboration",
+      description: "Seamlessly collaborate with your team through integrated chat, file sharing, and real-time updates.",
+      color: "from-purple-500 to-pink-500",
+    },
+    {
+      icon: <ClipboardDocumentCheckIcon className="w-8 h-8" />,
+      title: "Smart Task Management",
+      description: "AI-powered task prioritization and automated workflow suggestions to boost productivity.",
+      color: "from-green-500 to-emerald-500",
+    },
+    {
+      icon: <BoltIcon className="w-8 h-8" />,
+      title: "Lightning Fast",
+      description: "Built for speed with optimized performance that scales with your growing team.",
+      color: "from-yellow-500 to-orange-500",
+    },
+    {
+      icon: <ShieldCheckIcon className="w-8 h-8" />,
+      title: "Enterprise Security",
+      description: "Bank-level encryption and security protocols to keep your data safe and compliant.",
+      color: "from-red-500 to-rose-500",
+    },
+    {
+      icon: <SparklesIcon className="w-8 h-8" />,
+      title: "AI-Powered Insights",
+      description: "Leverage machine learning to predict project outcomes and optimize resource allocation.",
+      color: "from-indigo-500 to-blue-500",
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-base-100">
+      {/* Animated Background */}
+      <div className="fixed inset-0 hero-pattern opacity-50" />
+      
       {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-blue-600">MCP Manager</h1>
-              </div>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#features" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  Features
-                </a>
-                <a href="#about" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  About
-                </a>
-                <a href="#contact" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  Contact
-                </a>
-              </div>
-            </div>
-
-            {/* Auth Buttons */}
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-blue-600 hover:text-blue-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/auth/register"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Get Started
-              </Link>
-            </div>
+      <nav className={`navbar-glass fixed top-0 left-0 right-0 transition-all duration-300 ${
+        scrolled ? 'py-2 shadow-lg backdrop-blur-xl' : 'py-4'
+      }`}>
+        <div className="navbar-start">
+          <div className="dropdown lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost btn-circle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? (
+                <XMarkIcon className="w-6 h-6" />
+              ) : (
+                <Bars3Icon className="w-6 h-6" />
+              )}
+            </label>
+            {isMenuOpen && (
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-2xl bg-base-100 rounded-box w-52 animate-slide-down">
+                <li><a href="#features" onClick={() => setIsMenuOpen(false)}>Features</a></li>
+                <li><a href="#testimonials" onClick={() => setIsMenuOpen(false)}>Testimonials</a></li>
+                <li><a href="#pricing" onClick={() => setIsMenuOpen(false)}>Pricing</a></li>
+              </ul>
+            )}
           </div>
+          <Link href="/" className="btn btn-ghost text-xl font-bold">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                <span className="text-white text-sm font-bold">M</span>
+              </div>
+              <span className="text-gradient hidden sm:inline">MCP Manager</span>
+            </div>
+          </Link>
+        </div>
+        
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 gap-2">
+            <li><a href="#features" className="hover-glow rounded-lg">Features</a></li>
+            <li><a href="#testimonials" className="hover-glow rounded-lg">Testimonials</a></li>
+            <li><a href="#pricing" className="hover-glow rounded-lg">Pricing</a></li>
+          </ul>
+        </div>
+        
+        <div className="navbar-end gap-2">
+          <Link href="/auth/login" className="btn btn-ghost btn-sm">
+            Sign In
+          </Link>
+          <Link href="/auth/register" className="btn btn-primary btn-sm btn-gradient">
+            Get Started
+          </Link>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <main>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6">
-              Streamline Your{' '}
-              <span className="text-blue-600">Project Management</span>
+      <section className="hero min-h-screen relative overflow-hidden">
+        <div className="hero-content text-center py-32 px-4 max-w-5xl mx-auto animate-fade-in">
+          <div className="max-w-full">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 animate-slide-down">
+              <SparklesIcon className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium">Introducing AI-Powered Project Insights</span>
+            </div>
+            
+            {/* Heading */}
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up text-balance">
+              Project Management
+              <br />
+              <span className="text-gradient">Reimagined</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              MCP Manager helps teams collaborate efficiently with powerful project tracking, 
-              task management, and team coordination tools built for modern workflows.
+            
+            {/* Subheading */}
+            <p className="text-xl md:text-2xl mb-10 text-base-content/80 max-w-3xl mx-auto animate-slide-up animation-delay-200">
+              Experience the future of team collaboration with intelligent task management, 
+              real-time analytics, and seamless workflow automation.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/auth/register"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
-              >
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in animation-delay-400">
+              <Link href="/auth/register" className="btn btn-primary btn-lg btn-gradient group">
                 Start Free Trial
+                <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link
-                href="/auth/login"
-                className="bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-              >
-                Sign In
+              <Link href="/auth/login" className="btn btn-outline btn-lg glass-hover">
+                <span>Watch Demo</span>
+                <span className="badge badge-primary badge-sm ml-2">2 min</span>
               </Link>
             </div>
-          </div>
-        </div>
-
-        {/* Features Section */}
-        <div id="features" className="bg-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Everything You Need to Manage Projects
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Powerful features designed to help your team stay organized, collaborate effectively, and deliver results.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Feature 1 */}
-              <div className="text-center p-6">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Project Tracking</h3>
-                <p className="text-gray-600">
-                  Create and manage projects with detailed tracking, progress monitoring, and milestone management.
-                </p>
-              </div>
-
-              {/* Feature 2 */}
-              <div className="text-center p-6">
-                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Team Collaboration</h3>
-                <p className="text-gray-600">
-                  Invite team members, assign roles, and collaborate seamlessly with built-in communication tools.
-                </p>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="text-center p-6">
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Task Management</h3>
-                <p className="text-gray-600">
-                  Organize tasks with Kanban boards, set priorities, track progress, and meet deadlines efficiently.
-                </p>
+            
+            {/* Trust Badges */}
+            <div className="mt-16 flex flex-wrap justify-center items-center gap-8 opacity-60">
+              <div className="text-sm">Trusted by</div>
+              <div className="flex flex-wrap justify-center items-center gap-8">
+                {['Google', 'Microsoft', 'Amazon', 'Meta'].map((company) => (
+                  <div key={company} className="font-semibold text-lg hover:text-primary transition-colors">
+                    {company}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
+        
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <ChevronDownIcon className="w-6 h-6 text-base-content/50" />
+        </div>
+      </section>
 
-        {/* CTA Section */}
-        <div className="bg-blue-600 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Get Started?
+      {/* Features Section */}
+      <section id="features" className="py-24 px-4 relative">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Everything You Need to
+              <span className="text-gradient"> Succeed</span>
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join thousands of teams already using MCP Manager to streamline their project workflows and boost productivity.
+            <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
+              Powerful features designed to streamline your workflow and boost team productivity
             </p>
-            <Link
-              href="/auth/register"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
-            >
-              Create Your Free Account
+          </div>
+          
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="card-modern card-hover-lift p-8 group"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Icon */}
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} p-3 mb-6 group-hover:scale-110 transition-transform`}>
+                  <div className="text-white">{feature.icon}</div>
+                </div>
+                
+                {/* Content */}
+                <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
+                <p className="text-base-content/70 leading-relaxed">{feature.description}</p>
+                
+                {/* Learn More Link */}
+                <div className="mt-6">
+                  <a href="#" className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all">
+                    Learn more
+                    <ArrowRightIcon className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-24 px-4 bg-base-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { label: "Active Users", value: "50K+", suffix: "" },
+              { label: "Projects Managed", value: "1M", suffix: "+" },
+              { label: "Team Satisfaction", value: "98", suffix: "%" },
+              { label: "Uptime SLA", value: "99.9", suffix: "%" },
+            ].map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-gradient mb-2">
+                  {stat.value}{stat.suffix}
+                </div>
+                <div className="text-base-content/60">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Ready to Transform Your
+            <span className="text-gradient"> Workflow?</span>
+          </h2>
+          <p className="text-xl mb-10 text-base-content/70">
+            Join thousands of teams already using MCP Manager to deliver exceptional results
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link href="/auth/register" className="btn btn-primary btn-lg btn-gradient">
+              Start Your Free 14-Day Trial
+            </Link>
+            <Link href="#" className="btn btn-ghost btn-lg">
+              Schedule a Demo
             </Link>
           </div>
+          <p className="mt-6 text-sm text-base-content/60">
+            No credit card required • Cancel anytime • 24/7 Support
+          </p>
         </div>
-      </main>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="col-span-2">
-              <h3 className="text-2xl font-bold text-white mb-4">MCP Manager</h3>
-              <p className="text-gray-400 max-w-md">
-                The complete project management solution for modern teams. 
-                Streamline workflows, enhance collaboration, and deliver results.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Support</a></li>
-              </ul>
-            </div>
+      <footer className="footer footer-center p-10 bg-base-200 text-base-content">
+        <aside>
+          <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-4">
+            <span className="text-white text-2xl font-bold">M</span>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 MCP Manager. All rights reserved.</p>
+          <p className="font-bold">
+            MCP Manager
+            <br />
+            Empowering teams since 2024
+          </p>
+          <p>Copyright © 2025 - All rights reserved</p>
+        </aside>
+        <nav>
+          <div className="grid grid-flow-col gap-4">
+            <a className="hover:text-primary transition-colors">About</a>
+            <a className="hover:text-primary transition-colors">Contact</a>
+            <a className="hover:text-primary transition-colors">Jobs</a>
+            <a className="hover:text-primary transition-colors">Press</a>
           </div>
-        </div>
+        </nav>
       </footer>
     </div>
   );
