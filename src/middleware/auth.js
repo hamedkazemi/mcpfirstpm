@@ -51,7 +51,7 @@ const authenticate = async (req, res, next) => {
     return res.status(401).json({
       success: false,
       message: 'Invalid or expired token',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') ? error.message : 'Internal server error'
     });
   }
 };
@@ -151,6 +151,7 @@ const requireProjectOwner = async (req, res, next) => {
     }
 
     const { Project } = require('../models');
+    const projectModelInstance = new Project(); // Instantiate Project model
     const projectId = req.params.projectId || req.params.id;
     
     if (!projectId) {
@@ -160,7 +161,7 @@ const requireProjectOwner = async (req, res, next) => {
       });
     }
 
-    const project = await Project.findById(projectId);
+    const project = await projectModelInstance.findById(projectId); // Use instance
     if (!project) {
       return res.status(404).json({
         success: false,
@@ -204,6 +205,7 @@ const requireProjectAccess = async (req, res, next) => {
     }
 
     const { Project } = require('../models');
+    const projectModelInstance = new Project(); // Instantiate Project model
     const projectId = req.params.projectId || req.params.id;
     
     if (!projectId) {
@@ -213,7 +215,7 @@ const requireProjectAccess = async (req, res, next) => {
       });
     }
 
-    const project = await Project.findById(projectId);
+    const project = await projectModelInstance.findById(projectId); // Use instance
     if (!project) {
       return res.status(404).json({
         success: false,
@@ -222,7 +224,7 @@ const requireProjectAccess = async (req, res, next) => {
     }
 
     // Check if user has access to project
-    const hasAccess = await Project.checkAccess(projectId, req.user._id);
+    const hasAccess = await projectModelInstance.checkAccess(projectId, req.user._id.toString()); // Use instance and toString()
     if (!hasAccess && req.user.role !== 'admin') {
       return res.status(403).json({
         success: false,
@@ -258,6 +260,7 @@ const requireItemAccess = async (req, res, next) => {
     }
 
     const { Item, Project } = require('../models');
+    const projectModelInstance = new Project(); // Instantiate Project model
     const itemId = req.params.id;
     
     if (!itemId) {
@@ -276,7 +279,7 @@ const requireItemAccess = async (req, res, next) => {
     }
 
     // Check if user has access to the project containing this item
-    const hasAccess = await Project.checkAccess(item.projectId, req.user._id);
+    const hasAccess = await projectModelInstance.checkAccess(item.projectId.toString(), req.user._id.toString()); // Use instance and toString()
     if (!hasAccess && req.user.role !== 'admin') {
       return res.status(403).json({
         success: false,
@@ -285,7 +288,7 @@ const requireItemAccess = async (req, res, next) => {
     }
 
     // Get the full project object for additional context
-    const project = await Project.findById(item.projectId);
+    const project = await projectModelInstance.findById(item.projectId.toString()); // Use instance and toString()
     
     req.item = item;
     req.project = project;
@@ -316,6 +319,7 @@ const requireCommentAccess = async (req, res, next) => {
     }
 
     const { Comment, Item, Project } = require('../models');
+    const projectModelInstance = new Project(); // Instantiate Project model
     const commentId = req.params.id;
     
     if (!commentId) {
@@ -343,7 +347,7 @@ const requireCommentAccess = async (req, res, next) => {
     }
 
     // Check if user has access to the project containing this comment
-    const hasAccess = await Project.checkAccess(item.projectId, req.user._id);
+    const hasAccess = await projectModelInstance.checkAccess(item.projectId.toString(), req.user._id.toString()); // Use instance and toString()
     if (!hasAccess && req.user.role !== 'admin') {
       return res.status(403).json({
         success: false,
@@ -352,7 +356,7 @@ const requireCommentAccess = async (req, res, next) => {
     }
 
     // Get the full project object for additional context
-    const project = await Project.findById(item.projectId);
+    const project = await projectModelInstance.findById(item.projectId.toString()); // Use instance and toString()
     
     req.comment = comment;
     req.item = item;
@@ -384,6 +388,7 @@ const requireTagAccess = async (req, res, next) => {
     }
 
     const { Tag, Project } = require('../models');
+    const projectModelInstance = new Project(); // Instantiate Project model
     const tagId = req.params.id;
     
     if (!tagId) {
@@ -402,7 +407,7 @@ const requireTagAccess = async (req, res, next) => {
     }
 
     // Check if user has access to the project containing this tag
-    const hasAccess = await Project.checkAccess(tag.projectId, req.user._id);
+    const hasAccess = await projectModelInstance.checkAccess(tag.projectId.toString(), req.user._id.toString()); // Use instance and toString()
     if (!hasAccess && req.user.role !== 'admin') {
       return res.status(403).json({
         success: false,
@@ -411,7 +416,7 @@ const requireTagAccess = async (req, res, next) => {
     }
 
     // Get the full project object for additional context
-    const project = await Project.findById(tag.projectId);
+    const project = await projectModelInstance.findById(tag.projectId.toString()); // Use instance and toString()
     
     req.tag = tag;
     req.project = project;
