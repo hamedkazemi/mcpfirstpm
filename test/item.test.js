@@ -576,4 +576,194 @@ describe('Item Routes', function() {
       expect(res.body).to.have.property('message', 'Access denied to this item\'s project'); // From requireItemAccess
     });
   });
+
+  // --- Add Tag to Item & Remove Tag from Item ---
+  describe('Item Tag Management', () => {
+    let testItemForTagging;
+    let projectTag1, projectTag2;
+    let anotherProjectForTags, tagFromAnotherProject;
+
+    beforeEach(async () => {
+      testItemForTagging = await itemInstance.create({
+        title: 'Item for Tagging Tests',
+        type: 'task',
+        projectId: testProject._id.toString(),
+        createdBy: ownerUser._id.toString()
+      });
+
+      projectTag1 = await tagInstance.create({ name: 'ProjectTag1', color: '#PTAG1', projectId: testProject._id.toString() });
+      projectTag2 = await tagInstance.create({ name: 'ProjectTag2', color: '#PTAG2', projectId: testProject._id.toString() });
+
+      // Create another project and a tag within it for cross-project tests
+      const anotherProjData = { name: 'Other Project For Tags', key: 'OTAGKEY', owner: ownerUser._id.toString() };
+      anotherProjectForTags = await projectInstance.create(anotherProjData);
+      tagFromAnotherProject = await tagInstance.create({ name: 'ExternalTag', color: '#EXTAG', projectId: anotherProjectForTags._id.toString() });
+    });
+
+    // POST /api/items/:itemId/tags/:tagId (Add tag to item)
+    describe('POST /api/items/:itemId/tags/:tagId (Add tag to item)', () => {
+      it('should successfully add an existing project tag to an item (by project member)', async () => {
+        const initialTagCount = await tagInstance.findById(projectTag1._id).then(t => t.itemCount);
+
+        const res = await chai.request(app)
+          .post(`/api/items/${testItemForTagging._id}/tags/${projectTag1._id}`)
+          .set('Authorization', `Bearer ${memberToken}`);
+
+        expect(res).to.have.status(200);
+        expect(res.body).to.have.property('success', true);
+        expect(res.body.data.item.tags).to.be.an('array').that.includes(projectTag1._id.toString());
+
+        const dbItem = await itemInstance.findById(testItemForTagging._id);
+        expect(dbItem.tags.map(t => t.toString())).to.include(projectTag1._id.toString());
+
+        const dbTag = await tagInstance.findById(projectTag1._id);
+        expect(dbTag.itemCount).to.equal(initialTagCount + 1);
+      });
+
+      it('should return 400 if attempting to add a tag that is already on the item', async () => {
+        // Add the tag first and manually update itemCount for accurate state
+        testItemForTagging.tags.addToSet(projectTag1._id);
+        await testItemForTagging.save();
+        projectTag1.itemCount = (projectTag1.itemCount || 0) + 1;
+        await projectTag1.save();
+
+        const res = await chai.request(app)
+          .post(`/api/items/${testItemForTagging._id}/tags/${projectTag1._id}`)
+          .set('Authorization', `Bearer ${memberToken}`);
+
+        expect(res).to.have.status(400);
+        expect(res.body).to.have.property('success', false);
+        expect(res.body).to.have.property('message', 'Item already has this tag');
+      });
+
+      it('should return 404 if attempting to add a non-existent tag to an item', async () => {
+        const nonExistentTagId = new ObjectID().toString();
+        const res = await chai.request(app)
+          .post(`/api/items/${testItemForTagging._id}/tags/${nonExistentTagId}`)
+          .set('Authorization', `Bearer ${memberToken}`);
+
+        expect(res).to.have.status(404);
+        expect(res.body).to.have.property('message', 'Tag not found');
+      });
+
+      it('should return 404 if attempting to add a tag to a non-existent item', async () => {
+        const nonExistentItemId = new ObjectID().toString();
+        const res = await chai.request(app)
+          .post(`/api/items/${nonExistentItemId}/tags/${projectTag1._id}`)
+          .set('Authorization', `Bearer ${memberToken}`);
+
+        expect(res).to.have.status(404);
+        // This message comes from requireItemAccess middleware
+        expect(res.body).to.have.property('message', 'Item not found');
+      });
+
+      it('should return 400 if attempting to add a tag from a different project to an item', async () => {
+        const res = await chai.request(app)
+          .post(`/api/items/${testItemForTagging._id}/tags/${tagFromAnotherProject._id}`)
+          .set('Authorization', `Bearer ${memberToken}`);
+
+        expect(res).to.have.status(400);
+        expect(res.body).to.have.property('message', 'Cannot add tag from a different project');
+      });
+
+      it('should return 401 when adding tag without authentication', async () => {
+        const res = await chai.request(app)
+          .post(`/api/items/${testItemForTagging._id}/tags/${projectTag1._id}`);
+        expect(res).to.have.status(401);
+      });
+
+      it('should return 403 when user is not a member of the item\'s project', async () => {
+        const res = await chai.request(app)
+          .post(`/api/items/${testItemForTagging._id}/tags/${projectTag1._id}`)
+          .set('Authorization', `Bearer ${nonMemberToken}`);
+        expect(res).to.have.status(403);
+        expect(res.body).to.have.property('message', 'Access denied to this item\'s project');
+      });
+    });
+
+    // DELETE /api/items/:itemId/tags/:tagId (Remove tag from item)
+    describe('DELETE /api/items/:itemId/tags/:tagId (Remove tag from item)', () => {
+      beforeEach(async () => {
+        // Ensure testItemForTagging has projectTag1 before each DELETE test
+        // and projectTag1's itemCount is incremented accordingly for a valid pre-state.
+        if (!testItemForTagging.tags.map(t=>t.toString()).includes(projectTag1._id.toString())) {
+            testItemForTagging.tags.addToSet(projectTag1._id);
+            await testItemForTagging.save();
+            projectTag1.itemCount = (projectTag1.itemCount || 0) + 1;
+            await projectTag1.save();
+        }
+        // Reload testItemForTagging to get updated tags array
+        testItemForTagging = await itemInstance.findById(testItemForTagging._id);
+        // Reload tag to ensure itemCount is fresh from DB for assertion
+        projectTag1 = await tagInstance.findById(projectTag1._id);
+      });
+
+      it('should successfully remove an existing tag from an item (by project member)', async () => {
+        const initialTagCount = await tagInstance.findById(projectTag1._id).then(t => t.itemCount);
+        expect(testItemForTagging.tags.map(t=>t.toString())).to.include(projectTag1._id.toString());
+
+
+        const res = await chai.request(app)
+          .delete(`/api/items/${testItemForTagging._id}/tags/${projectTag1._id}`)
+          .set('Authorization', `Bearer ${memberToken}`);
+
+        expect(res).to.have.status(200);
+        expect(res.body).to.have.property('success', true);
+        expect(res.body.data.item.tags).to.be.an('array').that.does.not.include(projectTag1._id.toString());
+
+        const dbItem = await itemInstance.findById(testItemForTagging._id);
+        expect(dbItem.tags.map(t => t.toString())).to.not.include(projectTag1._id.toString());
+
+        const dbTag = await tagInstance.findById(projectTag1._id);
+        expect(dbTag.itemCount).to.equal(initialTagCount - 1);
+      });
+
+      it('should return 404 if attempting to remove a tag that is not on the item', async () => {
+        // projectTag2 is not on testItemForTagging initially in this specific test context (though it was in parent)
+        // Ensure it's not there after the beforeEach of this describe block
+        expect(testItemForTagging.tags.map(t=>t.toString())).to.not.include(projectTag2._id.toString());
+
+        const res = await chai.request(app)
+          .delete(`/api/items/${testItemForTagging._id}/tags/${projectTag2._id}`)
+          .set('Authorization', `Bearer ${memberToken}`);
+
+        expect(res).to.have.status(404);
+        expect(res.body).to.have.property('message', 'Tag not found on this item');
+      });
+
+      it('should return 404 if attempting to remove a non-existent tag from an item', async () => {
+        const nonExistentTagId = new ObjectID().toString();
+        const res = await chai.request(app)
+          .delete(`/api/items/${testItemForTagging._id}/tags/${nonExistentTagId}`)
+          .set('Authorization', `Bearer ${memberToken}`);
+
+        expect(res).to.have.status(404);
+        expect(res.body).to.have.property('message', 'Tag not found');
+      });
+
+      it('should return 404 if attempting to remove a tag from a non-existent item', async () => {
+        const nonExistentItemId = new ObjectID().toString();
+        const res = await chai.request(app)
+          .delete(`/api/items/${nonExistentItemId}/tags/${projectTag1._id}`)
+          .set('Authorization', `Bearer ${memberToken}`);
+
+        expect(res).to.have.status(404);
+        expect(res.body).to.have.property('message', 'Item not found'); // From requireItemAccess
+      });
+
+      it('should return 401 when removing tag without authentication', async () => {
+        const res = await chai.request(app)
+          .delete(`/api/items/${testItemForTagging._id}/tags/${projectTag1._id}`);
+        expect(res).to.have.status(401);
+      });
+
+      it('should return 403 when user not member of item\'s project tries to remove tag', async () => {
+        const res = await chai.request(app)
+          .delete(`/api/items/${testItemForTagging._id}/tags/${projectTag1._id}`)
+          .set('Authorization', `Bearer ${nonMemberToken}`);
+        expect(res).to.have.status(403);
+        expect(res.body).to.have.property('message', 'Access denied to this item\'s project');
+      });
+    });
+  });
 });
