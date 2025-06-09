@@ -120,11 +120,9 @@ const RegisterPage: React.FC = () => {
 
     try {
       const registerData = {
-        username: formData.username.trim(),
+        name: `${formData.firstName.trim()} ${formData.lastName.trim()}`,
         email: formData.email.trim().toLowerCase(),
         password: formData.password,
-        firstName: formData.firstName.trim(),
-        lastName: formData.lastName.trim(),
         role: formData.role,
       };
 
