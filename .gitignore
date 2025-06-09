@@ -1,0 +1,275 @@
+# ================================
+# 🌟 Vibe Project Manager .gitignore
+# ================================
+
+# ===== Dependencies =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ===== Environment Variables =====
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.staging
+
+# ===== Build Outputs =====
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+
+# ===== Logs =====
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ===== Runtime Data =====
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ===== Coverage & Testing =====
+coverage/
+*.lcov
+.nyc_output/
+.coverage/
+.jest-cache/
+test-results/
+playwright-report/
+test-results/
+
+# ===== Cache Directories =====
+.npm/
+.eslintcache
+.stylelintcache
+.parcel-cache/
+.cache/
+.tmp/
+.temp/
+
+# ===== Next.js Specific =====
+.next/
+out/
+next-env.d.ts
+.vercel
+
+# ===== TypeScript =====
+*.tsbuildinfo
+.tscache/
+
+# ===== Database =====
+*.db
+*.sqlite
+*.sqlite3
+data/
+db/
+database/
+*.dump
+*.sql.backup
+
+# ===== OS Generated Files =====
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ===== IDE & Editors =====
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.swp
+*.swo
+*~
+
+# Vim
+*.swp
+*.swo
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# ===== Package Managers =====
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# ===== Temporary Files =====
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.backup
+*~
+
+# ===== Security & Keys =====
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+.ssh/
+secrets/
+private/
+
+# ===== Docker =====
+Dockerfile.local
+docker-compose.override.yml
+.dockerignore
+
+# ===== Misc =====
+.sass-cache/
+.connect.lock
+.grunt/
+.lock-wscript
+.wafpickle-*
+lib-cov/
+.grunt
+bower_components/
+
+# ===== Local Development =====
+.local/
+local/
+dev/
+.dev/
+
+# ===== Upload Directories =====
+uploads/
+files/
+media/
+assets/uploads/
+
+# ===== Optional npm cache directory =====
+.npm
+
+# ===== Optional eslint cache =====
+.eslintcache
+
+# ===== Microbundle cache =====
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# ===== Optional REPL history =====
+.node_repl_history
+
+# ===== Output of 'npm pack' =====
+*.tgz
+
+# ===== Yarn Integrity file =====
+.yarn-integrity
+
+# ===== parcel-bundler cache =====
+.parcel-cache
+
+# ===== Storybook build outputs =====
+.out
+.storybook-out
+storybook-static
+
+# ===== Vuepress build output =====
+.vuepress/dist
+
+# ===== Serverless directories =====
+.serverless/
+
+# ===== FuseBox cache =====
+.fusebox/
+
+# ===== DynamoDB Local files =====
+.dynamodb/
+
+# ===== TernJS port file =====
+.tern-port
+
+# ===== Stores VSCode versions used for testing VSCode extensions =====
+.vscode-test
+
+# ===== Gatsby files =====
+.cache/
+public
+
+# ===== Svelte kit build =====
+.svelte-kit
+
+# ===== Sapper build outputs =====
+__sapper__
+
+# ===== vite temporary files =====
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# ===== Project Specific =====
+# Add any project-specific files or directories here
+# Example: custom config files, generated documentation, etc.
+
+# ===== Keep Important Files =====
+# Use ! to explicitly include important files that might be ignored
+!.gitkeep
+!.htaccess
+!.nvmrc
