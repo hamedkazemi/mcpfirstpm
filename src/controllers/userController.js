@@ -1,7 +1,11 @@
-const { User } = require('../models');
+const { User, Project, Item, Comment } = require('../models');
+const { ObjectID } = require('../config/database'); // Import ObjectID
 
-// Create model instance
+// Create model instances
 const userModel = new User();
+const projectModel = new Project();
+const itemModel = new Item();
+const commentModel = new Comment();
 
 /**
  * Get all users (admin only)
@@ -310,11 +314,58 @@ const deleteUser = async (req, res) => {
 
     // TODO: Before deleting user, we should:
     // 1. Transfer ownership of projects to another user or delete projects
-    // 2. Remove user from all project memberships
-    // 3. Handle user's items, comments, etc.
-    // For now, we'll just delete the user record
+    const userIdToDelete = id; // string
 
-    await userModel.delete(id);
+    // 1. Transfer project ownership
+    const ownedProjects = await projectModel.collection.find({ owner: userIdToDelete }).toArray();
+    if (ownedProjects && ownedProjects.length > 0) {
+      const otherAdmin = await userModel.collection.findOne({ roles: 'admin', _id: { $ne: new ObjectID(userIdToDelete) } });
+      if (!otherAdmin) {
+        return res.status(400).json({
+          success: false,
+          message: 'Cannot delete user: This user owns projects and no other admin exists to transfer ownership. Please transfer ownership manually or create another admin user.'
+        });
+      }
+      for (const project of ownedProjects) {
+        await projectModel.update(project._id.toString(), { owner: otherAdmin._id.toString() });
+      }
+    }
+
+    // 2. Remove user from all project memberships where they are not the owner
+    // (Projects where they were owner have already been handled)
+    const memberProjects = await projectModel.collection.find({
+      'members.userId': userIdToDelete,
+      owner: { $ne: userIdToDelete } // Ensure we don't process already transferred projects again if owner was also in members array
+    }).toArray();
+
+    for (const project of memberProjects) {
+      await projectModel.removeMember(project._id.toString(), userIdToDelete);
+    }
+
+    // 3. Handle user's items
+    // Unassign items from the user
+    await itemModel.collection.update(
+      { assignee: userIdToDelete },
+      { $set: { assignee: null } },
+      { multi: true }
+    );
+    // Set reporter to null for items reported by the user
+    await itemModel.collection.update(
+      { reporter: userIdToDelete },
+      { $set: { reporter: null } },
+      { multi: true }
+    );
+
+    // 4. Handle user's comments
+    // Set author to null for comments made by the user
+    await commentModel.collection.update(
+      { author: userIdToDelete },
+      { $set: { author: null } },
+      { multi: true }
+    );
+
+    // 5. Finally, delete the user record
+    await userModel.delete(userIdToDelete);
 
     res.status(200).json({
       success: true,

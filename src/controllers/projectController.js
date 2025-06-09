@@ -1,9 +1,11 @@
-const { Project, User, Tag } = require('../models');
+const { Project, User, Tag, Item, Comment } = require('../models');
 
 // Create model instances
 const projectModel = new Project();
 const userModel = new User();
 const tagModel = new Tag();
+const itemModel = new Item();
+const commentModel = new Comment();
 
 /**
  * Get all projects for the authenticated user
@@ -259,10 +261,27 @@ const deleteProject = async (req, res) => {
 
     // TODO: Before deleting project, we should:
     // 1. Delete all items in the project
-    // 2. Delete all comments in the project
-    // 3. Delete all tags in the project
-    // For now, we'll just delete the project record
+    // 1. Delete all tags in the project
+    await tagModel.deleteByProject(id);
 
+    // 2. Find all items in the project
+    // Note: findByProject might need adjustments for fetching ALL items if it paginates by default.
+    // Using a large limit or direct collection access is safer.
+    // For comments, we need item IDs.
+    const items = await itemModel.findByProject(id, {}, 10000, 0); // Assuming 10000 is a large enough limit
+
+    // 3. For each item, delete its comments
+    if (items && items.length > 0) {
+      for (const item of items) {
+        await commentModel.deleteByItem(item._id.toString());
+      }
+    }
+
+    // 4. Delete all items in the project
+    // Accessing collection directly for efficiency as Item model lacks deleteByProject
+    await itemModel.collection.remove({ projectId: id }, { multi: true });
+
+    // Finally, delete the project record
     await projectModel.delete(id);
 
     res.status(200).json({

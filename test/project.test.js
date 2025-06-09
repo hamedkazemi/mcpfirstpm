@@ -19,18 +19,16 @@ describe('Project Routes', function() { // Use function() to access this.timeout
 
   beforeEach(async () => {
     // Clear relevant collections
-    const usersCollection = db.collection('users');
-    const projectsCollection = db.collection('projects');
-
-    await new Promise((resolve, reject) => {
-      usersCollection.remove({}, { multi: true }, (err) => {
-        if (err) return reject(err);
-        projectsCollection.remove({}, { multi: true }, (err) => {
+    const collectionsToClear = ['users', 'projects', 'items', 'comments', 'tags'];
+    for (const collectionName of collectionsToClear) {
+      const collection = db.collection(collectionName);
+      await new Promise((resolve, reject) => {
+        collection.remove({}, { multi: true }, (err) => {
           if (err) return reject(err);
           resolve();
         });
       });
-    });
+    }
 
     // Setup a default user and token for authenticated tests
     const userDetails = {
@@ -420,6 +418,117 @@ describe('DELETE /api/projects/:id (Delete project)', () => {
       .delete(`/api/projects/${projectToDelete._id}`);
 
     expect(res).to.have.status(401);
+  });
+});
+
+describe('Project Deletion (Cascading)', function() {
+  this.timeout(7000); // Increase timeout for this suite due to multiple creations/deletions
+
+  let projectOwnerUser;
+  let projectOwnerToken;
+  let projectInstance;
+  let itemInstance;
+  let commentInstance;
+  let tagInstance;
+
+  beforeEach(async () => {
+    // Setup a specific user for these tests
+    const userDetails = {
+      username: 'cascadedeleteowner',
+      email: 'cascadedeleteowner@example.com',
+      password: 'password123',
+      // roles: ['admin'] // If admin role is strictly needed, otherwise owner is fine
+    };
+    // Use the global defaultUser and defaultToken if they are suitable, or create new ones.
+    // For this specific test, creating a dedicated user might be cleaner.
+    const authInfo = await registerAndLoginUser(userDetails);
+    projectOwnerToken = authInfo.tokens.accessToken;
+    const userModel = new User(); // User model already imported at the top
+    projectOwnerUser = await userModel.findById(authInfo.userId);
+
+    projectInstance = new Project(); // Project model already imported
+    itemInstance = new Item(); // Item model already imported
+    commentInstance = new Comment(); // Comment model already imported
+    tagInstance = new Tag(); // Tag model already imported
+  });
+
+  it('should delete associated items, comments, and tags when a project is deleted', async () => {
+    // 1. Create a project
+    const projectData = {
+      name: 'Project For Cascade Delete',
+      key: 'CASCADE',
+      owner: projectOwnerUser._id.toString(),
+      description: 'Test project for cascading delete'
+    };
+    const project = await projectInstance.create(projectData);
+    expect(project).to.exist;
+    const projectIdStr = project._id.toString(); // For consistency
+
+    // 2. Create tags for the project
+    const tag1 = await tagInstance.create({ projectId: projectIdStr, name: 'CascadeTag1', color: '#FF0000' });
+    const tag2 = await tagInstance.create({ projectId: projectIdStr, name: 'CascadeTag2', color: '#00FF00' });
+    expect(tag1).to.exist;
+    expect(tag2).to.exist;
+
+    // 3. Create items for the project
+    const item1Data = { projectId: projectIdStr, title: 'Item 1 for Cascade', reporter: projectOwnerUser._id.toString(), type: 'task' };
+    const item2Data = { projectId: projectIdStr, title: 'Item 2 for Cascade', reporter: projectOwnerUser._id.toString(), type: 'bug' };
+    const item1 = await itemInstance.create(item1Data);
+    const item2 = await itemInstance.create(item2Data);
+    expect(item1).to.exist;
+    expect(item2).to.exist;
+    const item1IdStr = item1._id.toString();
+    const item2IdStr = item2._id.toString();
+
+    // 4. Create comments for the items
+    const comment1Item1 = await commentInstance.create({ itemId: item1IdStr, author: projectOwnerUser._id.toString(), content: 'Comment 1 on Item 1' });
+    const comment2Item1 = await commentInstance.create({ itemId: item1IdStr, author: projectOwnerUser._id.toString(), content: 'Comment 2 on Item 1' });
+    const comment1Item2 = await commentInstance.create({ itemId: item2IdStr, author: projectOwnerUser._id.toString(), content: 'Comment 1 on Item 2' });
+    expect(comment1Item1).to.exist;
+    expect(comment2Item1).to.exist;
+    expect(comment1Item2).to.exist;
+
+    // 5. Delete the project via API
+    const res = await chai.request(app)
+      .delete(`/api/projects/${projectIdStr}`)
+      .set('Authorization', `Bearer ${projectOwnerToken}`);
+
+    expect(res).to.have.status(200);
+    expect(res.body).to.have.property('success', true);
+    expect(res.body).to.have.property('message', 'Project deleted successfully');
+
+    // 6. Verify project is deleted
+    const dbProject = await projectInstance.findById(projectIdStr);
+    expect(dbProject).to.be.null;
+
+    // 7. Verify associated tags are deleted
+    const dbTag1 = await tagInstance.findById(tag1._id.toString());
+    const dbTag2 = await tagInstance.findById(tag2._id.toString());
+    expect(dbTag1).to.be.null;
+    expect(dbTag2).to.be.null;
+    const projectTags = await tagInstance.findByProject(projectIdStr);
+    expect(projectTags).to.be.an('array').with.lengthOf(0);
+
+    // 8. Verify associated items are deleted
+    const dbItem1 = await itemInstance.findById(item1IdStr);
+    const dbItem2 = await itemInstance.findById(item2IdStr);
+    expect(dbItem1).to.be.null;
+    expect(dbItem2).to.be.null;
+    const projectItems = await itemInstance.findByProject(projectIdStr);
+    expect(projectItems).to.be.an('array').with.lengthOf(0);
+
+    // 9. Verify associated comments are deleted
+    const dbComment1Item1 = await commentInstance.findById(comment1Item1._id.toString());
+    const dbComment2Item1 = await commentInstance.findById(comment2Item1._id.toString());
+    const dbComment1Item2 = await commentInstance.findById(comment1Item2._id.toString());
+    expect(dbComment1Item1).to.be.null;
+    expect(dbComment2Item1).to.be.null;
+    expect(dbComment1Item2).to.be.null;
+
+    const commentsForItem1 = await commentInstance.findByItem(item1IdStr);
+    expect(commentsForItem1).to.be.an('array').with.lengthOf(0);
+    const commentsForItem2 = await commentInstance.findByItem(item2IdStr);
+    expect(commentsForItem2).to.be.an('array').with.lengthOf(0);
   });
 });
 });
