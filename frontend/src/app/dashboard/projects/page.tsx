@@ -6,6 +6,8 @@ import { projectsApi } from '@/lib/api';
 import type { Project } from '@/types';
 import { PlusIcon, FolderIcon, EllipsisVerticalIcon } from '@heroicons/react/24/outline';
 import { Menu } from '@headlessui/react';
+import NewProjectModal from './NewProjectModal';
+import ConfirmationModal from '@/components/shared/ConfirmationModal'; // Added import
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
@@ -15,6 +17,9 @@ const ProjectsPage: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false); // State for delete modal
+  const [projectToDeleteId, setProjectToDeleteId] = useState<string | null>(null); // State for project ID to delete
 
   useEffect(() => {
     fetchProjects();
@@ -30,6 +35,29 @@ const ProjectsPage: React.FC = () => {
       setError('Failed to load projects');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDeleteInitiation = (projectId: string) => {
+    setProjectToDeleteId(projectId);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!projectToDeleteId) return;
+
+    try {
+      setError(''); // Clear previous errors
+      await projectsApi.deleteProject(projectToDeleteId);
+      await fetchProjects(); // Refresh projects list
+      // TODO: Add success toast notification if available
+    } catch (err) {
+      console.error('Error deleting project:', err);
+      setError('Failed to delete project. Please try again.'); // Set error message
+      // TODO: Add error toast notification if available
+    } finally {
+      setIsDeleteModalOpen(false);
+      setProjectToDeleteId(null);
     }
   };
 
@@ -72,6 +100,7 @@ const ProjectsPage: React.FC = () => {
         <h1 className="text-2xl font-bold text-gray-900">Projects</h1>
         <button
           type="button"
+          onClick={() => setIsModalOpen(true)} // Modified onClick
           className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
           <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
@@ -90,6 +119,7 @@ const ProjectsPage: React.FC = () => {
           <div className="mt-6">
             <button
               type="button"
+              onClick={() => setIsModalOpen(true)} // Modified onClick
               className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
@@ -140,6 +170,8 @@ const ProjectsPage: React.FC = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <button
+                            type="button" // Added type button
+                            onClick={() => handleDeleteInitiation(project._id)} // Modified onClick
                             className={classNames(
                               active ? 'bg-gray-50' : '',
                               'block w-full text-left px-3 py-1 text-sm leading-6 text-red-600'
@@ -216,6 +248,24 @@ const ProjectsPage: React.FC = () => {
           ))}
         </div>
       )}
+
+      <NewProjectModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onProjectCreated={fetchProjects}
+      />
+
+      <ConfirmationModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => {
+          setIsDeleteModalOpen(false);
+          setProjectToDeleteId(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        title="Delete Project"
+        message="Are you sure you want to delete this project? This action cannot be undone."
+        confirmButtonText="Delete"
+      />
     </div>
   );
 };
